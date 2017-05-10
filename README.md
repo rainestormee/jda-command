@@ -34,13 +34,6 @@ For more detailed examples please see the example package located at `src/exampl
 <h5>Maven</h5>
 
 ```xml
-<!--Dependency for JDA-Command-->
-<dependency>
-   <groupId>com.github.Comportment</groupId>
-   <artifactId>JDA-Command</artifactId>
-   <version>1.0.0</version>
-</dependency>
-
 <!--Repository for JDA-Command-->
 <repository>
     <id>jitpack.io</id>
@@ -48,15 +41,24 @@ For more detailed examples please see the example package located at `src/exampl
 </repository>
 ```
 
+```xml
+<!--Dependency for JDA-Command-->
+<dependency>
+   <groupId>com.github.Comportment</groupId>
+   <artifactId>JDA-Command</artifactId>
+   <version>1.0.0</version>
+</dependency>
+```
+
 <h5>Gradle</h5>
 
 ```gradle
-dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.0'
-}
-
 repositories {
     //Make sure this repository is last.
     maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    compile 'com.github.Comportment:JDA-Command:1.0.0'
 }
 ```
