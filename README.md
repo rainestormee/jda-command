@@ -1,5 +1,5 @@
-#JDA-Command
-#####Small but powerful command library for JDA.
+<h1>JDA-Command</h1>
+<h5>Small but powerful command library for JDA.</h5>
 
 This command library was built to help people make amazing bots within JDA!
 
@@ -7,7 +7,7 @@ It uses maven for dependency management because I am an XML fanboy, but I also f
 
 Thank you for the amazing people at JDA for inspiring the creation of this library, go check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> 
 
-### Examples:
+<h3>Examples:</h3>
 
 This is a command which echoes the input of the user if their sentence begins with the bot's prefix and `echo`, `repeat` or `copy`.
 
@@ -26,12 +26,12 @@ public class Echo implements Command {
 
 For more detailed examples please see the example package located at `src/example/java/me.diax.jdacommand`
 
-### Bots using JDA-Command:
+<h3>Bots using JDA-Command:</h3>
 > Coming soon!
 
-#### Use JDA-Command in your projects today!
+<h4>Use JDA-Command in your projects today!</h4>
 
-#####Maven
+<h5>Maven</h5>
 
 ```xml
 <!--Dependency for JDA-Command-->
@@ -48,7 +48,8 @@ For more detailed examples please see the example package located at `src/exampl
 </repository>
 ```
 
-#####Gradle
+<h5>Gradle</h5>
+
 ```gradle
 dependencies {
     compile 'com.github.Comportment:JDA-Command:1.0.0'
