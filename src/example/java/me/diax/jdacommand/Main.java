@@ -50,7 +50,7 @@ public class Main {
      */
     private void main() {
         try {
-            JDA jda = new JDABuilder(AccountType.BOT).setToken("MzA1MDE4NDM4Mzc4ODQ4MjY3.C9wXkg.N9fUzYm1yCf12Ki76RrZkRPd9f0").addEventListener(new CommandListener()).buildBlocking();
+            JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener()).buildBlocking();
         } catch (LoginException|InterruptedException|RateLimitedException ignored) {}
         CommandHandler.registerCommands(new Ping(), new Echo());
     }
