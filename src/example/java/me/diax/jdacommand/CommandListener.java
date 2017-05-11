@@ -29,6 +29,11 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 public class CommandListener extends ListenerAdapter {
 
     private final String prefix = "!>";
+    private final CommandHandler handler;
+    
+    public CommandListener(CommandHandler handler) {
+        this.handler = handler;
+    }
 
     /**
      * This gets the raw content of the message, checks if the message starts with the {@link #prefix} or if the author is a bot.
@@ -46,8 +51,8 @@ public class CommandListener extends ListenerAdapter {
         if (event.getAuthor().isBot() || !message.startsWith(prefix)) return;
         message = message.replaceFirst(prefix, "");
         String cmdName = message.split(" ")[0];
-        Command command = CommandHandler.findCommand(cmdName.toLowerCase());
+        Command command = handler.findCommand(cmdName.toLowerCase());
         if (command == null) return;
-        CommandHandler.execute(command, event.getMessage(), message.replaceFirst(cmdName, ""));
+        handler.execute(command, event.getMessage(), message.replaceFirst(cmdName, ""));
     }
 }
