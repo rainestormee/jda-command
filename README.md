@@ -24,7 +24,7 @@ public class Echo implements Command {
 }
 ```
 
-For more detailed examples please see the example package located at `src/example/java/me.diax.jdacommand`
+For more detailed examples please see the example package located at `src/example/java/me/diax/jdacommand`
 
 <h3>Bots using JDA-Command:</h3>
 > Coming soon!
