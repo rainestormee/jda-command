@@ -33,6 +33,8 @@ import javax.security.auth.login.LoginException;
  */
 public class Main {
 
+    private final CommandHandler handler = new CommandHandler();
+    
     /**
      * We call on the real main to avoid static abuse.
      */
@@ -42,16 +44,16 @@ public class Main {
 
     /**
      * Call on the instance of JDA and build it however you normally do, making sure to add your command listener and register your commands.
-     * You can register commands before or after building your JDA instances.
+     * You can only register commands before building your JDA instances.
      *
      * @see CommandHandler#registerCommands(Command...)
      * @see JDABuilder#addEventListener(Object...)
      * @see JDABuilder#buildBlocking()
      */
     private void main() {
+        handler.registerCommands(new Ping(), new Echo());
         try {
-            JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener()).buildBlocking();
+            JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener(handler)).buildBlocking();
         } catch (LoginException|InterruptedException|RateLimitedException ignored) {}
-        CommandHandler.registerCommands(new Ping(), new Echo());
     }
 }
