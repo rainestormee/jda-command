@@ -31,17 +31,17 @@ import java.util.Set;
  */
 public class CommandHandler {
 
-    private static Set<Command> commands = new HashSet<>();
+    private Set<Command> commands = new HashSet<>();
 
-    public static void registerCommands(Command... commands) {
+    public void registerCommands(Command... commands) {
         Collections.addAll(CommandHandler.commands, commands);
     }
 
-    public static Command findCommand(String trigger) {
+    public Command findCommand(String trigger) {
         return commands.stream().filter(cd -> Arrays.asList(cd.getDescription().triggers()).contains(trigger)).findFirst().orElse(null);
     }
 
-    public static void execute(Command command, Message message, String args) {
+    public void execute(Command command, Message message, String args) {
         CommandDescription cd = command.getClass().getAnnotation(CommandDescription.class);
         if (cd == null) return;
         args = args.trim();
