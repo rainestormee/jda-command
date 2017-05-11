@@ -46,7 +46,7 @@ For more detailed examples please see the example package located at `src/exampl
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
 </dependency>
 ```
 
@@ -59,6 +59,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.0'
+    compile 'com.github.Comportment:JDA-Command:1.0.1'
 }
 ```
