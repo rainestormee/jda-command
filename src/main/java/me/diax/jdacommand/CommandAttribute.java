@@ -23,16 +23,19 @@ package me.diax.jdacommand;
  * This is for extra attributes in the {@link CommandDescription}
  *
  * @author Comportment
+ * @since 1.0.0
  */
 public @interface CommandAttribute {
 
     /**
      * The key which identifies the attribute.
+     * @since 1.0.0
      */
     String key();
 
     /**
      * The value of the attribute.
+     * @since 1.0.0
      */
     String value();
 }

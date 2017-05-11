@@ -24,6 +24,7 @@ import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 
 import javax.security.auth.login.LoginException;
+import java.util.Set;
 
 /**
  * Created by Comportment at 18:07 on 10/05/17
@@ -46,12 +47,13 @@ public class Main {
      * Call on the instance of JDA and build it however you normally do, making sure to add your command listener and register your commands.
      * You can only register commands before building your JDA instances.
      *
-     * @see CommandHandler#registerCommands(Command...)
+     * @see CommandHandler#registerCommands(Set)
      * @see JDABuilder#addEventListener(Object...)
      * @see JDABuilder#buildBlocking()
      */
     private void main() {
         handler.registerCommands(new Ping(), new Echo());
+        handler.unregisterCommands(handler.getCommands());
         try {
             JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener(handler)).buildBlocking();
         } catch (LoginException|InterruptedException|RateLimitedException ignored) {}

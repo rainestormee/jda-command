@@ -25,6 +25,7 @@ import java.lang.annotation.*;
  * This is for annotating classes which extend {@link Command}
  *
  * @author Comportment
+ * @since 1.0.0
  */
 @Documented
 @Inherited
@@ -34,21 +35,25 @@ public @interface CommandDescription {
 
     /**
      * This represents the name of the command which will be used for identification purposes.
+     * @since 1.0.0
      */
     String name();
 
     /**
      * This represents all of the keywords which can trigger the command. {@link #name()} will not be included unless put in here.
+     * @since 1.0.0
      */
     String[] triggers();
 
     /**
      * The minimum amount of arguments the command must take.
+     * @since 1.0.0
      */
     int args() default 0;
 
     /**
      * Any extra command attributes you might need.
+     * @since 1.0.0
      */
     CommandAttribute[] attributes() default {};
 }

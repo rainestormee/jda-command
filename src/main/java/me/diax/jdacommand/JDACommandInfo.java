@@ -16,33 +16,19 @@
 
 package me.diax.jdacommand;
 
-import net.dv8tion.jda.core.entities.Message;
-
 /**
- * Created by Comportment at 17:31 on 10/05/17
+ * Created by Comportment at 17:00 on 11/05/17
  * https://github.com/Comportment | comportment@diax.me
  *
- * This interface represents any type of command.
- *
  * @author Comportment
- * @since 1.0.0
+ * @since 1.0.1
  */
-@FunctionalInterface
-public interface Command {
+public class JDACommandInfo {
 
     /**
-     * This is the method called on to execute the command.
+     * The current version of this library.
      *
-     * @since 1.0.0
+     * @since 1.0.1
      */
-    void execute(Message message, String args);
-
-    /**
-     * Get the command description of this command.
-     *
-     * @since 1.0.0
-     */
-    default CommandDescription getDescription() {
-        return getClass().getAnnotation(CommandDescription.class);
-    }
+    public static final String VERSION = "1.0.1";
 }

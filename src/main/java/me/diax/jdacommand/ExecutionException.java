@@ -23,13 +23,16 @@ package me.diax.jdacommand;
  * An exception that occurs when a command cannot be executed for whatever reason.
  *
  * @author Comportment
+ * @since 1.0.0
  */
 public class ExecutionException extends RuntimeException {
     private static final long serialVersionUID = -3419515084851063729L;
 
-
     /**
-     * See {@link RuntimeException(String, Throwable)}
+     * Constructor for an ExecutionExeception.
+     *
+     * @see RuntimeException(String, Throwable)
+     * @since 1.0.0
      */
     ExecutionException(String message, Throwable cause) {
         super(message, cause);
