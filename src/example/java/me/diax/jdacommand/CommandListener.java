@@ -16,6 +16,7 @@
 
 package me.diax.jdacommand;
 
+import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
@@ -44,6 +45,8 @@ public class CommandListener extends ListenerAdapter {
      *
      * @see CommandHandler#findCommand(String)
      * @see CommandHandler#execute(Command, Message, String)
+     * @since 1.0.0
+     * @apiNote Updated in 1.0.2 to include examples of how to use attributes.
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -53,6 +56,7 @@ public class CommandListener extends ListenerAdapter {
         String cmdName = message.split(" ")[0];
         Command command = handler.findCommand(cmdName.toLowerCase());
         if (command == null) return;
+        if (!event.getChannelType().equals(ChannelType.TEXT) && !command.hasAttribute("guildOnly")) return;
         handler.execute(command, event.getMessage(), message.replaceFirst(cmdName, ""));
     }
 }

@@ -29,13 +29,16 @@ public @interface CommandAttribute {
 
     /**
      * The key which identifies the attribute.
+     *
      * @since 1.0.0
      */
     String key();
 
     /**
      * The value of the attribute.
+     *
      * @since 1.0.0
+     * @apiNote Changed to allow for no value present in 1.0.2
      */
-    String value();
+    String value() default "";
 }

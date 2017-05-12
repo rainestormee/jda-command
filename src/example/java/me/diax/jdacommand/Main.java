@@ -50,10 +50,11 @@ public class Main {
      * @see CommandHandler#registerCommands(Set)
      * @see JDABuilder#addEventListener(Object...)
      * @see JDABuilder#buildBlocking()
+     * @since 1.0.0
      */
     private void main() {
         handler.registerCommands(new Ping(), new Echo());
-        handler.unregisterCommands(handler.getCommands());
+        handler.unregisterCommands((Command) handler.getCommands().toArray()[0]);
         try {
             JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener(handler)).buildBlocking();
         } catch (LoginException|InterruptedException|RateLimitedException ignored) {}

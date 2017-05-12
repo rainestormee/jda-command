@@ -17,6 +17,7 @@
 package me.diax.jdacommand.commands;
 
 import me.diax.jdacommand.Command;
+import me.diax.jdacommand.CommandAttribute;
 import me.diax.jdacommand.CommandDescription;
 import net.dv8tion.jda.core.entities.Message;
 
@@ -28,7 +29,7 @@ import net.dv8tion.jda.core.entities.Message;
  *
  * @author Comportment
  */
-@CommandDescription(name = "Ping", triggers = {"ping", "pong"})
+@CommandDescription(name = "Ping", triggers = {"ping", "pong"}, attributes = @CommandAttribute(key = "guildOnly"))
 public class Ping implements Command {
 
     /**

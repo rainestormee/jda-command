@@ -18,6 +18,8 @@ package me.diax.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
 
+import java.util.Arrays;
+
 /**
  * Created by Comportment at 17:31 on 10/05/17
  * https://github.com/Comportment | comportment@diax.me
@@ -44,5 +46,28 @@ public interface Command {
      */
     default CommandDescription getDescription() {
         return getClass().getAnnotation(CommandDescription.class);
+    }
+
+    /**
+     * Returns the value of the attribute from the key given.
+     *
+     * @param key The key of the attribute.
+     * @return The value of the attribute. Could be <code>null</code>
+     * @since 1.0.2
+     */
+    default String getAttributeValueFromKey(String key) {
+        if (!hasAttribute(key)) return null;
+        return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().get().value();
+    }
+
+    /**
+     * Returns if the command has an attribute with the matching key.
+     *
+     * @param key The key of the attribute
+     * @return True if the command has the attribute, false if it does not.
+     * @since 1.0.2
+     */
+    default boolean hasAttribute(String key) {
+        return Arrays.stream(getDescription().attributes()).anyMatch(ca -> ca.key().equals(key));
     }
 }
