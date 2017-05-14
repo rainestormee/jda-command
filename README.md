@@ -28,6 +28,8 @@ For more detailed examples please see the example package located at `src/exampl
 
 <h3>Bots using JDA-Command:</h3>
 <b>Rythm by ImBursting#8667</b>
+<b>JDASelfBot by Comportment#9849</b>
+<b>Keats for The Writers Dungeon</b>
 
 <h4>Use JDA-Command in your projects today!</h4>
 
