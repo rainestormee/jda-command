@@ -14,29 +14,31 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand.commands;
-
-import me.diax.jdacommand.Command;
-import me.diax.jdacommand.CommandAttribute;
-import me.diax.jdacommand.CommandDescription;
-import net.dv8tion.jda.core.entities.Message;
+package me.diax.comportment.jdacommand;
 
 /**
- * Created by Comportment at 18:24 on 10/05/17
+ * Created by Comportment at 17:36 on 10/05/17
  * https://github.com/Comportment | comportment@diax.me
  *
- * Represents an example command using JDA-Command.
+ * This is for extra attributes in the {@link CommandDescription}
  *
  * @author Comportment
+ * @since 1.0.0
  */
-@CommandDescription(name = "Ping", triggers = {"ping", "pong"}, attributes = @CommandAttribute(key = "guildOnly"))
-public class Ping implements Command {
+public @interface CommandAttribute {
 
     /**
-     * This command simply sends a <p>Pong!</p> to the channel the command was executed in.
+     * The key which identifies the attribute.
+     *
+     * @since 1.0.0
      */
-    @Override
-    public void execute(Message message, String args) {
-        message.getChannel().sendMessage("Pong!").queue();
-    }
+    String key();
+
+    /**
+     * The value of the attribute.
+     *
+     * @since 1.0.0
+     * @apiNote Changed to allow for no value present in 1.0.2
+     */
+    String value() default "";
 }

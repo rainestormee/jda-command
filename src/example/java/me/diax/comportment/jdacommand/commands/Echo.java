@@ -14,27 +14,26 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand.commands;
+
+import me.diax.comportment.jdacommand.Command;
+import me.diax.comportment.jdacommand.CommandDescription;
+import net.dv8tion.jda.core.entities.Message;
 
 /**
- * Created by Comportment at 17:45 on 10/05/17
+ * Created by Comportment at 19:35 on 10/05/17
  * https://github.com/Comportment | comportment@diax.me
  *
- * An exception that occurs when a command cannot be executed for whatever reason.
- *
  * @author Comportment
- * @since 1.0.0
  */
-public class ExecutionException extends RuntimeException {
-    private static final long serialVersionUID = -3419515084851063729L;
+@CommandDescription(name = "Echo", triggers = {"echo", "repeat", "copy"}, args = 1)
+public class Echo implements Command {
 
     /**
-     * Constructor for an ExecutionExeception.
-     *
-     * @see RuntimeException(String, Throwable)
-     * @since 1.0.0
+     * This command simply echos the arguments back to the user.
      */
-    ExecutionException(String message, Throwable cause) {
-        super(message, cause);
+    @Override
+    public void execute(Message message, String args) {
+        message.getChannel().sendMessage(args).queue();
     }
 }

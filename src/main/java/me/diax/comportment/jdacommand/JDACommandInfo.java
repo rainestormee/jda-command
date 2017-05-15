@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand;
 
 /**
  * Created by Comportment at 17:00 on 11/05/17
@@ -30,5 +30,5 @@ public class JDACommandInfo {
      *
      * @since 1.0.1
      */
-    public static final String VERSION = "1.0.2";
+    public static final String VERSION = "1.0.3";
 }

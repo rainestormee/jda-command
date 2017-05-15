@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand;
 
 import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.entities.Message;
@@ -31,7 +31,7 @@ public class CommandListener extends ListenerAdapter {
 
     private final String prefix = "!>";
     private final CommandHandler handler;
-    
+
     public CommandListener(CommandHandler handler) {
         this.handler = handler;
     }
@@ -43,17 +43,17 @@ public class CommandListener extends ListenerAdapter {
      * <br>
      * If a command is found, then the command is executed.
      *
+     * @apiNote Updated in 1.0.2 to include examples of how to use attributes.
      * @see CommandHandler#findCommand(String)
      * @see CommandHandler#execute(Command, Message, String)
      * @since 1.0.0
-     * @apiNote Updated in 1.0.2 to include examples of how to use attributes.
      */
     @Override
     public void onMessageReceived(MessageReceivedEvent event) {
         String message = event.getMessage().getRawContent();
         if (event.getAuthor().isBot() || !message.startsWith(prefix)) return;
         message = message.replaceFirst(prefix, "");
-        String cmdName = message.split(" ")[0];
+        String cmdName = message.split("\\s+")[0];
         Command command = handler.findCommand(cmdName.toLowerCase());
         if (command == null) return;
         if (!event.getChannelType().equals(ChannelType.TEXT) && !command.hasAttribute("guildOnly")) return;

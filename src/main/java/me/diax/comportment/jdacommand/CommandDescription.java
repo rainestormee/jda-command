@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand;
 
 import java.lang.annotation.*;
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
 
@@ -143,11 +143,11 @@ public class CommandHandler {
         CommandDescription cd = command.getDescription();
         if (cd == null) return;
         args = args.trim();
-        if (cd.args() > args.split(" ").length) return;
+        if (cd.args() > args.split("\\s+").length) return;
         try {
             command.execute(message, args);
         } catch (Exception e) {
-            throw new ExecutionException("Could not execute " + cd.name() + " due to an exception.\nHere is the stack trace:", e);
+            throw new ExecutionException("Could not execute " + cd.name() + "\n", e);
         }
     }
 

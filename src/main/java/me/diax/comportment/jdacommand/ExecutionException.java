@@ -14,31 +14,27 @@
  * limitations under the License.
  */
 
-package me.diax.jdacommand;
+package me.diax.comportment.jdacommand;
 
 /**
- * Created by Comportment at 17:36 on 10/05/17
+ * Created by Comportment at 17:45 on 10/05/17
  * https://github.com/Comportment | comportment@diax.me
  *
- * This is for extra attributes in the {@link CommandDescription}
+ * An exception that occurs when a command cannot be executed for whatever reason.
  *
  * @author Comportment
  * @since 1.0.0
  */
-public @interface CommandAttribute {
+public class ExecutionException extends RuntimeException {
+    private static final long serialVersionUID = -3419515084851063729L;
 
     /**
-     * The key which identifies the attribute.
+     * Constructor for an ExecutionExeception.
      *
+     * @see RuntimeException(String, Throwable)
      * @since 1.0.0
      */
-    String key();
-
-    /**
-     * The value of the attribute.
-     *
-     * @since 1.0.0
-     * @apiNote Changed to allow for no value present in 1.0.2
-     */
-    String value() default "";
+    ExecutionException(String message, Throwable cause) {
+        super(message, cause);
+    }
 }
