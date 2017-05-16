@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package me.diax.comportment.jdacommand.java;
 
+import me.diax.comportment.jdacommand.Command;
+import me.diax.comportment.jdacommand.CommandHandler;
 import net.dv8tion.jda.core.entities.ChannelType;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;

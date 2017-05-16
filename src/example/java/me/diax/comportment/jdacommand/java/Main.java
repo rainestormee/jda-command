@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package me.diax.comportment.jdacommand.java;
 
-import me.diax.comportment.jdacommand.commands.Echo;
-import me.diax.comportment.jdacommand.commands.Ping;
+import me.diax.comportment.jdacommand.CommandHandler;
+import me.diax.comportment.jdacommand.java.commands.Echo;
+import me.diax.comportment.jdacommand.java.commands.Ping;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -54,7 +55,6 @@ public class Main {
      */
     private void main() {
         handler.registerCommands(new Ping(), new Echo());
-        handler.unregisterCommands((Command) handler.getCommands().toArray()[0]);
         try {
             JDA jda = new JDABuilder(AccountType.BOT).setToken("-token-").addEventListener(new CommandListener(handler)).buildBlocking();
         } catch (LoginException | InterruptedException | RateLimitedException ignored) {
