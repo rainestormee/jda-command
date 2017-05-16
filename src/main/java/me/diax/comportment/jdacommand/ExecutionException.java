@@ -37,4 +37,14 @@ public class ExecutionException extends RuntimeException {
     ExecutionException(String message, Throwable cause) {
         super(message, cause);
     }
+
+    /**
+     * Constructor for an ExecutionExeception.
+     *
+     * @see RuntimeException(String, Throwable)
+     * @since 1.0.3
+     */
+    ExecutionException(Throwable cause) {
+        super(cause);
+    }
 }

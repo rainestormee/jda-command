@@ -36,7 +36,7 @@ For more detailed examples please see the example package located at `src/exampl
 
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.0.3
+The current promoted version is 1.0.4
 
 <h5>Maven</h5>
 
@@ -53,7 +53,7 @@ The current promoted version is 1.0.3
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.3</version>
+   <version>1.0.4</version>
 </dependency>
 ```
 
@@ -66,6 +66,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.3'
+    compile 'com.github.Comportment:JDA-Command:1.0.4'
 }
 ```

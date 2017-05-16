@@ -17,6 +17,7 @@
 package me.diax.comportment.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.core.utils.SimpleLog;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,6 +34,7 @@ import java.util.Set;
  * @since 1.0.0
  */
 public class CommandHandler {
+    private final SimpleLog logger = SimpleLog.getLog("JDA-Command");
 
     /**
      * A set of all of the commands that this CommandHandler can see.
@@ -145,9 +147,11 @@ public class CommandHandler {
         args = args.trim();
         if (cd.args() > args.split("\\s+").length) return;
         try {
+            logger.info("Executing " + cd.name());
             command.execute(message, args);
         } catch (Exception e) {
-            throw new ExecutionException("Could not execute " + cd.name() + "\n", e);
+            logger.fatal("Could not execute " + cd.name());
+            throw new ExecutionException(e);
         }
     }
 
