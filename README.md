@@ -27,13 +27,16 @@ public class Echo implements Command {
 For more detailed examples please see the example package located at `src/example/java/me/diax/jdacommand`
 
 <h3>Bots using JDA-Command:</h3>
+
 <b>Rythm by ImBursting#8667</b>
+
 <b>JDASelfBot by Comportment#9849</b>
+
 <b>Keats for The Writers Dungeon</b>
 
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.0.2
+The current promoted version is 1.0.3
 
 <h5>Maven</h5>
 
@@ -50,7 +53,7 @@ The current promoted version is 1.0.2
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.2</version>
+   <version>1.0.3</version>
 </dependency>
 ```
 
@@ -63,6 +66,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.2'
+    compile 'com.github.Comportment:JDA-Command:1.0.3'
 }
 ```
