@@ -31,6 +31,18 @@ class CommandListener(val handler: CommandHandler) : ListenerAdapter() {
 
     private val prefix = "!>"
 
+    /**
+     * This gets the raw content of the message, checks if the message starts with the {@link #prefix} or if the author is a bot.
+     * <br>
+     * Then it trims the prefix out of the content and searches the first word to see if it matches a command trigger.
+     * <br>
+     * If a command is found, then the command is executed.
+     *
+     * @apiNote Updated in 1.0.2 to include examples of how to use attributes.
+     * @see CommandHandler#findCommand(String)
+     * @see CommandHandler#execute(Command, Message, String)
+     * @since 1.0.0
+     */
     override fun onMessageReceived(event: MessageReceivedEvent) {
         var message = event.message.rawContent
         if (event.author.isBot || !message.startsWith(prefix)) return

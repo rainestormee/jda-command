@@ -14,33 +14,26 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand.java.commands;
+package me.diax.comportment.jdacommand.examples.java.commands;
 
 import me.diax.comportment.jdacommand.Command;
-import me.diax.comportment.jdacommand.CommandAttribute;
 import me.diax.comportment.jdacommand.CommandDescription;
 import net.dv8tion.jda.core.entities.Message;
 
-import java.time.temporal.ChronoUnit;
-
 /**
- * Created by Comportment at 18:24 on 10/05/17
+ * Created by Comportment at 19:35 on 10/05/17
  * https://github.com/Comportment | comportment@diax.me
- * <p>
- * Represents an example command using JDA-Command.
  *
  * @author Comportment
  */
-@CommandDescription(name = "Ping", triggers = {"ping", "pong"}, attributes = @CommandAttribute(key = "guildOnly"))
-public class Ping implements Command {
+@CommandDescription(name = "Echo", triggers = {"echo", "repeat", "copy"}, args = 1)
+public class Echo implements Command {
 
     /**
-     * This command sends the bot's ping to the channel the message was sent in.
+     * This command simply echos the arguments back to the user.
      */
     @Override
     public void execute(Message message, String args) {
-        message.getChannel().sendMessage("Pinging!").queue(pinging -> {
-            pinging.editMessage("Ping: " + message.getCreationTime().until(pinging.getCreationTime(), ChronoUnit.MILLIS) + "ms").queue();
-        });
+        message.getChannel().sendMessage(args).queue();
     }
 }

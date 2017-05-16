@@ -31,6 +31,9 @@ import java.time.temporal.ChronoUnit
 @CommandDescription(name = "Ping", triggers = arrayOf("ping", "pong"), attributes = arrayOf(CommandAttribute(key = "guildOnly")))
 class Ping : Command {
 
+    /**
+     * This command sends the bot's ping to the channel the message was sent in.
+     */
     override fun execute(message: Message, args: String) {
         message.channel.sendMessage("Pinging...").queue {
             pinging ->

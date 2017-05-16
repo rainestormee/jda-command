@@ -15,7 +15,6 @@
  */
 
 @file:JvmName("Main")
-
 package me.diax.comportment.jdacommand.examples.kotlin
 
 import me.diax.comportment.jdacommand.CommandHandler
@@ -32,6 +31,15 @@ import net.dv8tion.jda.core.JDABuilder
  */
 val handler = CommandHandler()
 
+/**
+ * Call on the instance of JDA and build it however you normally do, making sure to add your command listener and register your commands.
+ * You can only register commands before building your JDA instances.
+ *
+ * @see CommandHandler#registerCommands(Set)
+ * @see JDABuilder#addEventListener(Object...)
+ * @see JDABuilder#buildBlocking()
+ * @since 1.0.0
+ */
 fun main(args: Array<String>) {
     handler.registerCommands(Echo(), Ping())
     try {

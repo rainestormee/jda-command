@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand.java;
+package me.diax.comportment.jdacommand.examples.java;
 
 import me.diax.comportment.jdacommand.Command;
 import me.diax.comportment.jdacommand.CommandHandler;
