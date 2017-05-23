@@ -4,13 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.diax</groupId>
-    <artifactId>jda-command</artifactId>
-    <version>1.0.5</version>
+    <groupId>me.diax.comportment</groupId>
+    <artifactId>JDA-Command</artifactId>
+    <version>1.0.6</version>
 
-    <properties>
-        <kotlin.version>1.1.2-3</kotlin.version>
-    </properties>
+    <name>JDA-Command</name>
+    <url>https://github.com/Comportment/JDA-Command</url>
 
     <repositories>
         <repository>
@@ -24,7 +23,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.0.0_200</version>
+            <version>3.1.0_204</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

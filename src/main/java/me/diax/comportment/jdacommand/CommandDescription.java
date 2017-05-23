@@ -28,7 +28,6 @@ import java.lang.annotation.*;
  * @since 1.0.0
  */
 @Documented
-@Inherited
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface CommandDescription {
@@ -38,6 +37,13 @@ public @interface CommandDescription {
      * @since 1.0.0
      */
     String name();
+
+    /**
+     * This represents an optional description of the command.
+     *
+     * @since 1.0.6
+     */
+    String description() default "";
 
     /**
      * This represents all of the keywords which can trigger the command. {@link #name()} will not be included unless put in here.
