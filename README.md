@@ -1,5 +1,5 @@
 <h1>JDA-Command</h1>
-<h5>Small but powerful command library for JDA.</h5>
+<h5>Small and powerful command library for JDA.</h5>
 
 This command library was built to help people make amazing bots within JDA!
 
@@ -36,7 +36,7 @@ For more detailed examples please see the example package located at `src/exampl
 
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.0.4
+The current promoted version is 1.0.6
 
 <h5>Maven</h5>
 
@@ -53,7 +53,7 @@ The current promoted version is 1.0.4
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.4</version>
+   <version>1.0.6</version>
 </dependency>
 ```
 
@@ -66,6 +66,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.4'
+    compile 'com.github.Comportment:JDA-Command:1.0.6'
 }
 ```
