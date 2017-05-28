@@ -17,8 +17,8 @@
 package me.diax.comportment.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -35,7 +35,7 @@ import java.util.Set;
  * @since 1.0.0
  */
 public class CommandHandler {
-    private final Log logger = LogFactory.getLog("JDA-Command");
+    private final Logger logger = LoggerFactory.getLogger("JDA-Command");
 
     /**
      * A set of all of the commands that this CommandHandler can see.
