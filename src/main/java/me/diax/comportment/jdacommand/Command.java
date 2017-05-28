@@ -28,8 +28,8 @@ import java.util.Arrays;
  *
  * @author Comportment
  * @since 1.0.0
+ * @apiNote In 1.0.7 this was no longer a {@link FunctionalInterface}.
  */
-@FunctionalInterface
 public interface Command {
 
     /**

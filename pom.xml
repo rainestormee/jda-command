@@ -6,7 +6,7 @@
 
     <groupId>me.diax.comportment</groupId>
     <artifactId>JDA-Command</artifactId>
-    <version>1.0.6</version>
+    <version>1.0.7</version>
 
     <name>JDA-Command</name>
     <url>https://github.com/Comportment/JDA-Command</url>

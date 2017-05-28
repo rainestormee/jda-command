@@ -1,11 +1,11 @@
 <h1>JDA-Command</h1>
-<h5>Small and powerful command library for JDA.</h5>
+<h5>Small, powerful and lightweight command library for JDA.</h5>
 
 This command library was built to help people make amazing bots within JDA!
-
-It uses maven for dependency management because I am an XML fanboy, but I also find gradle cool and use it for some projects.
-
-Thank you for the amazing people at JDA for inspiring the creation of this library, go check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> 
+<br>
+It uses maven for dependency management because I am an XML fanboy,<br>but I also find gradle cool and use it for some projects.
+<br>
+Thank you for the amazing people at JDA for inspiring the creation of this library,<br>go and check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> 
 
 <h3>Examples:</h3>
 
@@ -14,7 +14,9 @@ This is a command which echoes the input of the user if their sentence begins wi
 
 If the input was `bot, echo hello!` the output would be `hello!` (If the prefix was `bot, `) 
 ```java
-@CommandDescription(name = "Echo", triggers = {"echo", "repeat", "copy"}, args = 1)
+@CommandDescription(name = "Echo", triggers = {"echo", "repeat", "copy"}, 
+    description = "This command echoes what you say!", 
+args = 1)
 public class Echo implements Command {
 
     @Override
@@ -24,19 +26,19 @@ public class Echo implements Command {
 }
 ```
 
-For more detailed examples please see the example package located at `src/example/java/me/diax/jdacommand`
-
-<h3>Bots using JDA-Command:</h3>
-
-<b>Rythm by ImBursting#8667</b>
-
-<b>JDASelfBot by Comportment#9849</b>
-
-<b>Keats for The Writers Dungeon</b>
+For more detailed examples please see the example repository
+<a href="https://github.com/Comportment/JDA-Command-Examples">here</a>.
+<br>
+<h3>Bots using JDA-Command:</h3><hr>
+<p>Examples marked with a <b>*</b> may not be suitable for beginners.</p>
+<ul>
+    <li><a href = "https://github.com/Comportment/Diax">Diax</a> by Comportment#9489<b>*</b></li>
+    <li><a href = "https://github.com/Comportment/JDASelfBot">JDASelfBot</a> by Comportment#9489</li>
+</ul>
 
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.0.6
+The current promoted version is 1.0.7
 
 <h5>Maven</h5>
 
@@ -44,7 +46,14 @@ The current promoted version is 1.0.6
 <!--Repository for JDA-Command-->
 <repository>
     <id>jitpack.io</id>
+    <name>jitpack</name>
     <url>https://jitpack.io</url>
+</repository>
+<!--Repository for JDA-->
+<repository>
+    <id>jcenter</id>
+    <name>jcenter-bintray</name>
+    <url>http://jcenter.bintray.com</url>
 </repository>
 ```
 
@@ -53,7 +62,13 @@ The current promoted version is 1.0.6
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.6</version>
+   <version>1.0.7</version>
+</dependency>
+<!--Dependency for JDA-->
+<dependency>
+    <groupId>net.dv8tion</groupId>
+    <artifactId>JDA</artifactId>
+    <version>3.1.0_206</version>
 </dependency>
 ```
 
@@ -61,11 +76,16 @@ The current promoted version is 1.0.6
 
 ```gradle
 repositories {
+    //This repository is needed for JDA.
+    jcenter()
     //Make sure this repository is last.
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    compile 'com.github.Comportment:JDA-Command:1.0.6'
+    //JDA-Command dependency
+    compile 'com.github.Comportment:JDA-Command:1.0.7'
+    //JDA dependency
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.1.0_206'
 }
 ```
