@@ -9,8 +9,37 @@
     <artifactId>JDA-Command</artifactId>
     <version>1.0.7</version>
 
+    <developers>
+        <developer>
+            <name>Comportment</name>
+            <id>Comportment</id>
+            <url>http://www.diax.me</url>
+            <organization>Diax</organization>
+            <roles>
+                <role>Developer</role>
+            </roles>
+            <email>comportment@diax.me</email>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
     <name>JDA-Command</name>
+    <description>JDA-Command command framework for JDA.</description>
     <url>https://github.com/Comportment/JDA-Command</url>
+
+    <organization>
+        <url>https://github.com/Comportment</url>
+        <name>Comportment</name>
+    </organization>
 
     <repositories>
         <repository>
