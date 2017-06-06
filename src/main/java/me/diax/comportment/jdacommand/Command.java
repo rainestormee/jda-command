@@ -21,27 +21,26 @@ import net.dv8tion.jda.core.entities.Message;
 import java.util.Arrays;
 
 /**
- * Created by Comportment at 17:31 on 10/05/17
- * https://github.com/Comportment | comportment@diax.me
- *
- * This interface represents any type of command.
+ * This represents a generic command.
  *
  * @author Comportment
  * @since 1.0.0
- * @apiNote In 1.0.7 this was no longer a {@link FunctionalInterface}.
  */
 public interface Command {
 
     /**
      * This is the method called on to execute the command.
      *
+     * @param message The message which triggered the command.
+     * @param args The arguments of the commands.
      * @since 1.0.0
      */
     void execute(Message message, String args);
 
     /**
-     * Get the command description of this command.
+     * Returns the {@link CommandDescription} annotation that this command is annotated with.
      *
+     * @return The {@link CommandDescription} annotation of the command.
      * @since 1.0.0
      */
     default CommandDescription getDescription() {
@@ -51,13 +50,13 @@ public interface Command {
     /**
      * Returns the value of the attribute from the key given.
      *
-     * @param key The key of the attribute.
-     * @return The value of the attribute. Could be <code>null</code>
+     * @param key The key of the {@link CommandAttribute} to find.
+     * @return The value of the attribute, could be <code>null</code>.
      * @since 1.0.2
      */
     default String getAttributeValueFromKey(String key) {
         if (!hasAttribute(key)) return null;
-        return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().get().value();
+        return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().orElse(null).key();
     }
 
     /**

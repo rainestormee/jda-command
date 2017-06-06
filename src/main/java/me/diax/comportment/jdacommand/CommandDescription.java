@@ -19,13 +19,11 @@ package me.diax.comportment.jdacommand;
 import java.lang.annotation.*;
 
 /**
- * Created by Comportment at 17:35 on 10/05/17
- * https://github.com/Comportment | comportment@diax.me
- *
  * This is for annotating classes which extend {@link Command}
  *
  * @author Comportment
  * @since 1.0.0
+ * @see Command
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
@@ -33,32 +31,41 @@ import java.lang.annotation.*;
 public @interface CommandDescription {
 
     /**
-     * This represents the name of the command which will be used for identification purposes.
+     * This represents the name of the {@link Command} which is annotated with this {@link CommandDescription}
+     *
+     * @return The name of the command.
      * @since 1.0.0
      */
     String name();
 
     /**
-     * This represents an optional description of the command.
+     * This represents the description of the {@link Command} which is annotated with this {@link CommandDescription} has.
      *
+     * @return The description of the command.
      * @since 1.0.6
      */
     String description() default "";
 
     /**
-     * This represents all of the keywords which can trigger the command. {@link #name()} will not be included unless put in here.
+     * This represents an array of Strings which could trigger the {@link Command} which is annotated with this {@link CommandDescription} has.
+     *
+     * @return An Array of Strings which could trigger the command.
      * @since 1.0.0
      */
     String[] triggers();
 
     /**
-     * The minimum amount of arguments the command must take.
+     * This represents the minimum amount of arguments that the {@link Command} which is annotated with this {@link CommandDescription} has.
+     *
+     * @return The minimum amount of arguments.
      * @since 1.0.0
      */
     int args() default 0;
 
     /**
-     * Any extra command attributes you might need.
+     * This represents an Array of {@link CommandAttribute} that the {@link} which is annotated with this {@link CommandDescription} has.
+     *
+     * @return An array of {@link CommandAttribute}s, could be <code>null</code>.
      * @since 1.0.0
      */
     CommandAttribute[] attributes() default {};

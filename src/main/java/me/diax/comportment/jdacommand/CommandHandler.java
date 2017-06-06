@@ -26,10 +26,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by Comportment at 17:43 on 10/05/17
- * https://github.com/Comportment | comportment@diax.me
- *
- * The command handler which deals with the registered commands.
+ * The {@link CommandHandler} which deals with the registered {@link Command}s.
  *
  * @author Comportment
  * @since 1.0.0
@@ -38,7 +35,7 @@ public class CommandHandler {
     private final Logger logger = LoggerFactory.getLogger("JDA-Command");
 
     /**
-     * A set of all of the commands that this CommandHandler can see.
+     * A set of all of the commands that this {@link CommandHandler} has registered.
      *
      * @see #getCommands()
      * @since 1.0.0
@@ -46,7 +43,7 @@ public class CommandHandler {
     private Set<Command> commands = new HashSet<>();
 
     /**
-     * A method to register commands with the command handler.
+     * A method to register {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The {@link Command}s to register.
      * @see #registerCommand(Command)
@@ -57,7 +54,7 @@ public class CommandHandler {
     }
 
     /**
-     * A method to register commands with the command handler.
+     * A method to register {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The {@link Command}s to register.
      * @see #registerCommand(Command)
@@ -69,7 +66,7 @@ public class CommandHandler {
     }
 
     /**
-     * A method to register a command with the command handler.
+     * A method to register a {@link Command} with this {@link CommandHandler}.
      *
      * @param command The {@link Command} to register.
      * @see #registerCommands(Set)
@@ -80,7 +77,7 @@ public class CommandHandler {
     }
 
     /**
-     * A method to unregister commands with the command handler.
+     * A method to unregister {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
      * @see #unregisterCommand(Command)
@@ -92,7 +89,7 @@ public class CommandHandler {
     }
 
     /**
-     * A method to unregister commands with the command handler.
+     * A method to unregister {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
      * @see #unregisterCommand(Command)
@@ -104,7 +101,7 @@ public class CommandHandler {
     }
 
     /**
-     * A method to unregister a command with the command handler.
+     * A method to unregister a {@link Command} with this {@link CommandHandler}.
      *
      * @param command The command to unregister.
      * @see #unregisterCommands(Set)
@@ -116,6 +113,8 @@ public class CommandHandler {
     }
 
     /**
+     * A method to get all of the {@link Command}s registered with this {@link CommandHandler}
+     *
      * @return All of the commands registered with this command handler.
      * @since 1.0.1
      */
@@ -124,7 +123,7 @@ public class CommandHandler {
     }
 
     /**
-     * Method which attempts to find a command from the given trigger
+     * Method which attempts to find a {@link Command} from the given trigger
      *
      * @param trigger The trigger of the command to find.
      * @return The {@link Command} that was found, sometimes <code>null</code>
@@ -135,38 +134,38 @@ public class CommandHandler {
     }
 
     /**
-     * Method which attempts to execute the given command.
+     * Method which attempts to execute the given {@link Command}.
      *
      * @param command The {@link Command} to execute.
      * @param message The {@link Message} which triggered the command.
-     * @param args The arguments of the command.
+     * @param args    The arguments of the command.
+     * @throws ExecutionException If the command could not be executed.
      * @since 1.0.0
      */
-    public void execute(Command command, Message message, String args) {
+    public void execute(Command command, Message message, String args) throws ExecutionException {
         CommandDescription cd = command.getDescription();
         if (cd == null) return;
-        args = args.trim();
-        if (cd.args() > args.split("\\s+").length) return;
+        //if (cd.args() > args.split("\\s+").length) return;
         try {
             logger.info("Executing " + cd.name());
-            command.execute(message, args);
+            command.execute(message, args.trim());
         } catch (Exception e) {
-            logger.error("Could not execute " + cd.name());
             throw new ExecutionException(e);
         }
     }
 
     /**
-     * A method which calls {@link #findCommand(String)}, and then {@link #execute(Command, Message, String)} if the found command is not <code>null</code>
+     * A method which calls {@link #findCommand(String)}, and then {@link #execute(Command, Message, String)} if the found {@link Command} is not <code>null</code>
      *
      * @param trigger The trigger of the command.
      * @param message The {@link Message} which triggered the command.
-     * @param args The args of the command.
-     * @since 1.0.1
+     * @param args    The args of the command.
+     * @throws ExecutionException If the command could not be executed.
      * @see #findCommand(String)
      * @see #execute(Command, Message, String)
+     * @since 1.0.1
      */
-    public void findAndExecute(String trigger, Message message, String args) {
+    public void findAndExecute(String trigger, Message message, String args) throws ExecutionException {
         Command command = this.findCommand(trigger);
         if (command == null || command.getDescription() == null) return;
         this.execute(command, message, args);

@@ -17,19 +17,18 @@
 package me.diax.comportment.jdacommand;
 
 /**
- * Created by Comportment at 17:36 on 10/05/17
- * https://github.com/Comportment | comportment@diax.me
- *
- * This is for extra attributes in the {@link CommandDescription}
+ * This can be used for extra attributes in the {@link CommandDescription} annotation.
  *
  * @author Comportment
  * @since 1.0.0
+ * @see CommandDescription
  */
 public @interface CommandAttribute {
 
     /**
      * The key which identifies the attribute.
      *
+     * @return The key of the description.
      * @since 1.0.0
      */
     String key();
@@ -37,8 +36,9 @@ public @interface CommandAttribute {
     /**
      * The value of the attribute.
      *
+     * @return The value of the description, could be <code>null</code>.
      * @since 1.0.0
-     * @apiNote Changed to allow for no value present in 1.0.2
+     * Changed to allow for no value present in 1.0.2
      */
     String value() default "";
 }

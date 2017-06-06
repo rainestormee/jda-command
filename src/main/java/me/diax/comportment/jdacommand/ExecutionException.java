@@ -17,10 +17,7 @@
 package me.diax.comportment.jdacommand;
 
 /**
- * Created by Comportment at 17:45 on 10/05/17
- * https://github.com/Comportment | comportment@diax.me
- *
- * An exception that occurs when a command cannot be executed for whatever reason.
+ * This represents an {@link Exception} that occurs when an error with JDA-Command occurs.
  *
  * @author Comportment
  * @since 1.0.0
@@ -29,7 +26,7 @@ public class ExecutionException extends RuntimeException {
     private static final long serialVersionUID = -3419515084851063729L;
 
     /**
-     * Constructor for an ExecutionExeception.
+     * Constructor for an {@link ExecutionException}.
      *
      * @see RuntimeException(String, Throwable)
      * @since 1.0.3

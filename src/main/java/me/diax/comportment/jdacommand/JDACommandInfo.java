@@ -17,8 +17,7 @@
 package me.diax.comportment.jdacommand;
 
 /**
- * Created by Comportment at 17:00 on 11/05/17
- * https://github.com/Comportment | comportment@diax.me
+ * This represents information about JDA-Command
  *
  * @author Comportment
  * @since 1.0.1
