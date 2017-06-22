@@ -8,5 +8,4 @@ public class CommandPermissionException extends Exception {
     public CommandPermissionException(){
         super("You don't have enough permission to execute this command");
     }
-
 }

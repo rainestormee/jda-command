@@ -14,5 +14,4 @@ public @interface CommandPermission {
      * @since 1.0.0
      */
     Permission[] permissions() default {};
-
 }
