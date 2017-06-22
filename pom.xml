@@ -7,7 +7,7 @@
 
     <groupId>me.diax.comportment</groupId>
     <artifactId>JDA-Command</artifactId>
-    <version>1.0.7</version>
+    <version>1.0.8</version>
 
     <developers>
         <developer>
@@ -77,7 +77,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.1.1_212</version>
+            <version>3.1.1_215</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
