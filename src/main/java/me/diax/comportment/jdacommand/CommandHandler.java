@@ -16,7 +16,7 @@
 
 package me.diax.comportment.jdacommand;
 
-import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -147,8 +147,12 @@ public class CommandHandler {
         CommandDescription cd = command.getDescription();
         if(message.getGuild() != null){
             boolean havePermission = false;
-            for (CommandPermission commandPermission : cd.permissions()) {
-                if(message.getMember().hasPermission(commandPermission.permissions())) havePermission = true;
+            if(!message.getMember().equals(message.getGuild().getOwner()) && !message.getMember().hasPermission(Permission.ADMINISTRATOR)){
+                for (CommandPermission commandPermission : cd.permissions()) {
+                    if(message.getMember().hasPermission(commandPermission.permissions())) havePermission = true;
+                }
+            }else{
+                havePermission = true;
             }
             if(!havePermission) throw new CommandPermissionException();
         }
