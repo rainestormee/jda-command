@@ -16,6 +16,7 @@
 
 package me.diax.comportment.jdacommand;
 
+import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -142,8 +143,19 @@ public class CommandHandler {
      * @throws ExecutionException If the command could not be executed.
      * @since 1.0.0
      */
-    public void execute(Command command, Message message, String args) throws ExecutionException {
+    public void execute(Command command, Message message, String args) throws ExecutionException, CommandPermissionException {
         CommandDescription cd = command.getDescription();
+        if(message.getGuild() != null){
+            boolean havePermission = false;
+            if(!message.getMember().equals(message.getGuild().getOwner()) && !message.getMember().hasPermission(Permission.ADMINISTRATOR)){
+                for (CommandPermission commandPermission : cd.permissions()) {
+                    if(message.getMember().hasPermission(commandPermission.permissions())) havePermission = true;
+                }
+            }else{
+                havePermission = true;
+            }
+            if(!havePermission) throw new CommandPermissionException();
+        }
         if (cd == null) return;
         //if (cd.args() > args.split("\\s+").length) return;
         try {
@@ -165,7 +177,7 @@ public class CommandHandler {
      * @see #execute(Command, Message, String)
      * @since 1.0.1
      */
-    public void findAndExecute(String trigger, Message message, String args) throws ExecutionException {
+    public void findAndExecute(String trigger, Message message, String args) throws ExecutionException, CommandPermissionException {
         Command command = this.findCommand(trigger);
         if (command == null || command.getDescription() == null) return;
         this.execute(command, message, args);
