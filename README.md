@@ -68,7 +68,7 @@ The latest version is 1.1.0
 <dependency>
     <groupId>net.dv8tion</groupId>
     <artifactId>JDA</artifactId>
-    <version>3.1.0_206</version>
+    <version>3.2.0_241</version>
 </dependency>
 ```
 
@@ -86,6 +86,6 @@ dependencies {
     //JDA-Command dependency
     compile 'com.github.Comportment:JDA-Command:1.0.7'
     //JDA dependency
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.1.0_206'
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.2.0_241'
 }
 ```
