@@ -32,13 +32,13 @@ For more detailed examples please see the example repository
 <h3>Bots using JDA-Command:</h3><hr>
 <p>Examples marked with a <b>*</b> may not be suitable for beginners.</p>
 <ul>
-    <li><a href = "https://github.com/Comportment/Diax">Diax</a> by Comportment#9489<b>*</b></li>
-    <li><a href = "https://github.com/Comportment/JDASelfBot">JDASelfBot</a> by Comportment#9489</li>
+<li>List outdated, coming soon.</li>
 </ul>
 
 <h4>Use JDA-Command in your projects today!</h4>
 
 The current promoted version is 1.0.7
+The latest version is 1.1.0
 
 <h5>Maven</h5>
 
