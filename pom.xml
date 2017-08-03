@@ -7,21 +7,35 @@
 
     <groupId>me.diax.comportment</groupId>
     <artifactId>JDA-Command</artifactId>
-    <version>1.0.8</version>
+    <version>1.1.0</version>
+
+    <organization>
+        <name>Diax Software</name>
+        <url>http://diax.me</url>
+    </organization>
 
     <developers>
         <developer>
-            <name>Comportment</name>
-            <id>Comportment</id>
-            <url>http://www.diax.me</url>
-            <organization>Diax</organization>
+            <id>comportment</id>
+            <name>Ryan Arrowsmith</name>
+            <timezone>Europe/London</timezone>
+            <url>http://comp.diax.me</url>
+            <email>comportment@protonmail.com</email>
+            <organization>Diax Software</organization>
+            <organizationUrl>http://diax.me</organizationUrl>
             <roles>
-                <role>Developer</role>
+                <role>development</role>
+                <role>documentation</role>
+                <role>discord-bot</role>
+                <role>irc-bot</role>
             </roles>
-            <email>comportment@diax.me</email>
-            <timezone>0</timezone>
+            <properties>
+                <discord>comportment#9489</discord>
+                <twitter>@ComportmentUK</twitter>
+            </properties>
         </developer>
     </developers>
+
 
     <licenses>
         <license>
@@ -35,11 +49,6 @@
     <name>JDA-Command</name>
     <description>JDA-Command command framework for JDA.</description>
     <url>https://github.com/Comportment/JDA-Command</url>
-
-    <organization>
-        <url>https://github.com/Comportment</url>
-        <name>Comportment</name>
-    </organization>
 
     <repositories>
         <repository>
@@ -62,22 +71,11 @@
             </plugin>
         </plugins>
     </build>
-    <reporting>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
-                <configuration>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
     <dependencies>
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.1.1_215</version>
+            <version>3.2.0_241</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

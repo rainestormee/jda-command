@@ -69,12 +69,4 @@ public @interface CommandDescription {
      * @since 1.0.0
      */
     CommandAttribute[] attributes() default {};
-
-    /**
-     * This represents an Array of {@link CommandPermission} that the {@link Command} which is annotated with this {@link CommandDescription} has.
-     *
-     * @return An array of {@link CommandPermission}s, could be <code>null</code>.
-     * @since 1.0.8
-     */
-    CommandPermission[] permissions() default {};
 }
