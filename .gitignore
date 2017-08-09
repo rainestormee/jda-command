@@ -1,8 +1,5 @@
 *.iml
-<<<<<<< HEAD
-.idea/
-=======
 .idea/
 target/
 test/
->>>>>>> refs/remotes/origin/master
+

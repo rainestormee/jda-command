@@ -24,14 +24,7 @@
             <organization>Diax Software</organization>
             <organizationUrl>http://diax.me</organizationUrl>
             <roles>
-<<<<<<< HEAD
                 <role>developer</role>
-=======
-                <role>development</role>
-                <role>documentation</role>
-                <role>discord-bot</role>
-                <role>irc-bot</role>
->>>>>>> refs/remotes/origin/master
             </roles>
             <properties>
                 <discord>comportment#9489</discord>
@@ -73,15 +66,12 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-<<<<<<< HEAD
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <configuration />
             </plugin>
-=======
->>>>>>> refs/remotes/origin/master
         </plugins>
     </build>
     <dependencies>
