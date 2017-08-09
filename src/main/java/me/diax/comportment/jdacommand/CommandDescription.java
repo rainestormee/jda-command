@@ -33,7 +33,7 @@ public @interface CommandDescription {
     /**
      * This represents the name of the {@link Command} which is annotated with this {@link CommandDescription}
      *
-     * @return The name of the command.
+     * @return The name of the command, should never be <code>null</code>.
      * @since 1.0.0
      */
     String name();
@@ -41,7 +41,7 @@ public @interface CommandDescription {
     /**
      * This represents the description of the {@link Command} which is annotated with this {@link CommandDescription} has.
      *
-     * @return The description of the command.
+     * @return The description of the command, default as an empty string.
      * @since 1.0.6
      */
     String description() default "";
@@ -65,7 +65,7 @@ public @interface CommandDescription {
     /**
      * This represents an Array of {@link CommandAttribute} that the {@link Command} which is annotated with this {@link CommandDescription} has.
      *
-     * @return An array of {@link CommandAttribute}s, could be <code>null</code>.
+     * @return An array of {@link CommandAttribute}s, will return an empty array if no attributes are used.
      * @since 1.0.0
      */
     CommandAttribute[] attributes() default {};
