@@ -37,8 +37,7 @@ For more detailed examples please see the example repository
 
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.0.7
-The latest version is 1.1.0
+The current promoted version is 1.1.0
 
 <h5>Maven</h5>
 
@@ -62,13 +61,13 @@ The latest version is 1.1.0
 <dependency>
    <groupId>com.github.Comportment</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.0.7</version>
+   <version>1.1.0</version>
 </dependency>
 <!--Dependency for JDA-->
 <dependency>
     <groupId>net.dv8tion</groupId>
     <artifactId>JDA</artifactId>
-    <version>3.2.0_241</version>
+    <version>3.2.0_242</version>
 </dependency>
 ```
 
@@ -84,8 +83,8 @@ repositories {
 
 dependencies {
     //JDA-Command dependency
-    compile 'com.github.Comportment:JDA-Command:1.0.7'
+    compile 'com.github.Comportment:JDA-Command:1.1.0'
     //JDA dependency
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.2.0_241'
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.2.0_242'
 }
 ```
