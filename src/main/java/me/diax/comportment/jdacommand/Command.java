@@ -26,7 +26,7 @@ import java.util.Arrays;
  * @author Comportment
  * @since 1.0.0
  */
-public interface Command {
+public interface Command extends Comparable<Command> {
 
     /**
      * This is the method called on to execute the command.
@@ -68,5 +68,10 @@ public interface Command {
      */
     default boolean hasAttribute(String key) {
         return Arrays.stream(getDescription().attributes()).anyMatch(ca -> ca.key().equals(key));
+    }
+
+    @Override
+    default int compareTo(Command that) {
+        return this.getDescription().name().compareTo(that.getDescription().name());
     }
 }

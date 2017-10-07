@@ -16,10 +16,7 @@
 
 package me.diax.comportment.jdacommand;
 
-import net.dv8tion.jda.core.Permission;
 import net.dv8tion.jda.core.entities.Message;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,7 +30,6 @@ import java.util.Set;
  * @since 1.0.0
  */
 public class CommandHandler {
-    private final Logger logger = LoggerFactory.getLogger("JDA-Command");
 
     /**
      * A set of all of the commands that this {@link CommandHandler} has registered.
@@ -140,19 +136,12 @@ public class CommandHandler {
      * @param command The {@link Command} to execute.
      * @param message The {@link Message} which triggered the command.
      * @param args    The arguments of the command.
-     * @throws ExecutionException If the command could not be executed.
      * @since 1.0.0
      */
-    public void execute(Command command, Message message, String args) throws ExecutionException {
+    public void execute(Command command, Message message, String args) {
         CommandDescription cd = command.getDescription();
         if (cd == null) return;
-        //if (cd.args() > args.split("\\s+").length) return;
-        try {
-            logger.info("Executing " + cd.name());
-            command.execute(message, args.trim());
-        } catch (Exception e) {
-            throw new ExecutionException(e);
-        }
+        command.execute(message, args.trim());
     }
 
     /**
@@ -161,12 +150,11 @@ public class CommandHandler {
      * @param trigger The trigger of the command.
      * @param message The {@link Message} which triggered the command.
      * @param args    The args of the command.
-     * @throws ExecutionException If the command could not be executed.
      * @see #findCommand(String)
      * @see #execute(Command, Message, String)
      * @since 1.0.1
      */
-    public void findAndExecute(String trigger, Message message, String args) throws ExecutionException {
+    public void findAndExecute(String trigger, Message message, String args) {
         Command command = this.findCommand(trigger);
         if (command == null || command.getDescription() == null) return;
         this.execute(command, message, args);

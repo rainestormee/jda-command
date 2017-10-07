@@ -7,7 +7,7 @@
 
     <groupId>me.diax.comportment</groupId>
     <artifactId>JDA-Command</artifactId>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <organization>
         <name>Diax Software</name>
@@ -27,7 +27,7 @@
                 <role>developer</role>
             </roles>
             <properties>
-                <discord>comportment#9489</discord>
+                <discord>comportment#4475</discord>
                 <twitter>@ComportmentUK</twitter>
             </properties>
         </developer>
@@ -78,13 +78,8 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.2.0_242</version>
+            <version>3.3.1_286</version>
             <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.8.0-alpha2</version>
         </dependency>
     </dependencies>
 </project>
