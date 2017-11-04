@@ -18,7 +18,9 @@ package me.diax.comportment.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
 
+import javax.annotation.Nullable;
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * This represents a generic command.
@@ -32,10 +34,27 @@ public interface Command extends Comparable<Command> {
      * This is the method called on to execute the command.
      *
      * @param message The message which triggered the command.
-     * @param args The arguments of the commands.
+     * @param args    The arguments of the commands.
      * @since 1.0.0
      */
     void execute(Message message, String args);
+
+    @Override
+    default int compareTo(@Nullable Command that) {
+        return this.getDescription().name().compareTo(Objects.requireNonNull(that, "Commands must not be null").getDescription().name());
+    }
+
+    /**
+     * Returns the value of the attribute from the key given.
+     *
+     * @param key The key of the {@link CommandAttribute} to find.
+     * @return The value of the attribute, could be <code>null</code>.
+     * @since 1.0.2
+     */
+    default String getAttributeValueFromKey(String key) {
+        if (!hasAttribute(key)) return null;
+        return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().map(CommandAttribute::value).orElse(null);
+    }
 
     /**
      * Returns the {@link CommandDescription} annotation that this command is annotated with.
@@ -48,18 +67,6 @@ public interface Command extends Comparable<Command> {
     }
 
     /**
-     * Returns the value of the attribute from the key given.
-     *
-     * @param key The key of the {@link CommandAttribute} to find.
-     * @return The value of the attribute, could be <code>null</code>.
-     * @since 1.0.2
-     */
-    default String getAttributeValueFromKey(String key) {
-        if (!hasAttribute(key)) return null;
-        return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().orElse(null).key();
-    }
-
-    /**
      * Returns if the command has an attribute with the matching key.
      *
      * @param key The key of the attribute
@@ -68,10 +75,5 @@ public interface Command extends Comparable<Command> {
      */
     default boolean hasAttribute(String key) {
         return Arrays.stream(getDescription().attributes()).anyMatch(ca -> ca.key().equals(key));
-    }
-
-    @Override
-    default int compareTo(Command that) {
-        return this.getDescription().name().compareTo(that.getDescription().name());
     }
 }
