@@ -55,14 +55,6 @@ public @interface CommandDescription {
     String[] triggers();
 
     /**
-     * This represents the minimum amount of arguments that the {@link Command} which is annotated with this {@link CommandDescription} has.
-     *
-     * @return The minimum amount of arguments.
-     * @since 1.0.0
-     */
-    int args() default 0;
-
-    /**
      * This represents an Array of {@link CommandAttribute} that the {@link Command} which is annotated with this {@link CommandDescription} has.
      *
      * @return An array of {@link CommandAttribute}s, will return an empty array if no attributes are used.
