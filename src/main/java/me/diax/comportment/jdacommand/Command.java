@@ -67,6 +67,22 @@ public interface Command extends Comparable<Command> {
     }
 
     /**
+     * Returns the {@link Category} annotation that this command might be associated with.
+     *
+     * @return possible-null {@link Category} annotation.
+     * @since 1.1.2
+     */
+    default Category getCategory() {
+        Category category = getClass().getAnnotation(Category.class);
+        if (category != null) return category;
+
+        Package p = getClass().getPackage();
+        if (p == null) return null;
+
+        return p.getAnnotation(Category.class);
+    }
+
+    /**
      * Returns if the command has an attribute with the matching key.
      *
      * @param key The key of the attribute
