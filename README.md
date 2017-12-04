@@ -29,11 +29,6 @@ public class Echo implements Command {
 For more detailed examples please see the example repository
 <a href="https://github.com/Comportment/JDA-Command-Examples">here</a>.
 <br>
-<h3>Bots using JDA-Command:</h3><hr>
-<p>Examples marked with a <b>*</b> may not be suitable for beginners.</p>
-<ul>
-<li>List outdated, coming soon.</li>
-</ul>
 
 <h4>Use JDA-Command in your projects today!</h4>
 
