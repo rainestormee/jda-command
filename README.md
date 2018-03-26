@@ -3,7 +3,7 @@
 
 This command library was built to help people make amazing bots within JDA!
 <br>
-It uses maven for dependency management because I am an XML fanboy,<br>but I also find gradle cool and use it for some projects.
+It uses maven for dependency management because I am an XML fangirl,<br>but I also find gradle cool and use it for some projects.
 <br>
 Thank you for the amazing people at JDA for inspiring the creation of this library,<br>go and check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> 
 
@@ -26,13 +26,10 @@ public class Echo implements Command {
 }
 ```
 
-For more detailed examples please see the example repository
-<a href="https://github.com/Comportment/JDA-Command-Examples">here</a>.
 <br>
-
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.1.1
+The current promoted version is 1.1.2
 
 <h5>Maven</h5>
 
@@ -54,15 +51,15 @@ The current promoted version is 1.1.1
 ```xml
 <!--Dependency for JDA-Command-->
 <dependency>
-   <groupId>com.github.Comportment</groupId>
+   <groupId>com.github.rainestormee</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.1.1</version>
+   <version>1.1.2</version>
 </dependency>
 <!--Dependency for JDA-->
 <dependency>
     <groupId>net.dv8tion</groupId>
     <artifactId>JDA</artifactId>
-    <version>3.3.1_286</version>
+    <version>3.6.0_359</version>
 </dependency>
 ```
 
@@ -78,8 +75,8 @@ repositories {
 
 dependencies {
     //JDA-Command dependency
-    compile 'com.github.Comportment:JDA-Command:1.1.1'
+    compile 'com.github.rainestormee:JDA-Command:1.1.2'
     //JDA dependency
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.3.1_286'
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.6.0_359'
 }
 ```

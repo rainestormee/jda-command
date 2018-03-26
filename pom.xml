@@ -5,30 +5,24 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>me.diax.comportment</groupId>
+    <groupId>com.github.rainestormee</groupId>
     <artifactId>JDA-Command</artifactId>
     <version>1.1.2</version>
 
-    <organization>
-        <name>Diax Software</name>
-        <url>http://diax.me</url>
-    </organization>
-
     <developers>
         <developer>
-            <id>comportment</id>
-            <name>Ryan Arrowsmith</name>
+            <id>rainestormee</id>
+            <name>Raine Strum</name>
             <timezone>Europe/London</timezone>
-            <url>http://comp.diax.me</url>
+            <url>https://discord.gg/EzJUU9X</url>
             <email>comportment@protonmail.com</email>
-            <organization>Diax Software</organization>
-            <organizationUrl>http://diax.me</organizationUrl>
+            <organization>Damage Incorporated</organization>
+            <organizationUrl>http://dmg-inc.com/</organizationUrl>
             <roles>
                 <role>developer</role>
             </roles>
             <properties>
-                <discord>comportment#4475</discord>
-                <twitter>@ComportmentUK</twitter>
+                <discord>Raine#8544</discord>
             </properties>
         </developer>
     </developers>
@@ -45,7 +39,7 @@
 
     <name>JDA-Command</name>
     <description>JDA-Command command framework for JDA.</description>
-    <url>https://github.com/Comportment/JDA-Command</url>
+    <url>https://github.com/rainestormee/JDA-Command</url>
 
     <repositories>
         <repository>
@@ -78,7 +72,7 @@
         <dependency>
             <groupId>net.dv8tion</groupId>
             <artifactId>JDA</artifactId>
-            <version>3.3.1_302</version>
+            <version>3.6.0_359</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

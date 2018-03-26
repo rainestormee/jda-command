@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
 
@@ -25,7 +25,7 @@ import java.util.Objects;
 /**
  * This represents a generic command.
  *
- * @author Comportment
+ * @author Raine
  * @since 1.0.0
  */
 public interface Command extends Comparable<Command> {

@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 /**
  * This can be used for extra attributes in the {@link CommandDescription} annotation.
  *
- * @author Comportment
+ * @author Raine
  * @see CommandDescription
  * @since 1.0.0
  */

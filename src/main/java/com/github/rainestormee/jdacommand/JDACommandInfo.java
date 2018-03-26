@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 /**
  * This represents information about JDA-Command
  *
- * @author Comportment
+ * @author Raine
  * @since 1.0.1
  */
 public class JDACommandInfo {
@@ -29,5 +29,5 @@ public class JDACommandInfo {
      *
      * @since 1.0.1
      */
-    public static final String VERSION = "1.1.1";
+    public static final String VERSION = "1.1.2";
 }

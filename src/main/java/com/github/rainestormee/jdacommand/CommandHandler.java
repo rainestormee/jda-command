@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 import net.dv8tion.jda.core.entities.Message;
 
@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * The {@link CommandHandler} which deals with the registered {@link Command}s.
  *
- * @author Comportment
+ * @author Raine
  * @since 1.0.0
  */
 public class CommandHandler {

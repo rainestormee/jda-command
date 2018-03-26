@@ -14,14 +14,14 @@
  * limitations under the License.
  */
 
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 import java.lang.annotation.*;
 
 /**
  * This is for annotating classes which extend {@link Command}
  *
- * @author Comportment
+ * @author Raine
  * @see Command
  * @since 1.0.0
  */

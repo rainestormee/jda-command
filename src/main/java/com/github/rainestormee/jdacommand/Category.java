@@ -1,4 +1,4 @@
-package me.diax.comportment.jdacommand;
+package com.github.rainestormee.jdacommand;
 
 import java.lang.annotation.*;
 
