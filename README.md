@@ -26,10 +26,7 @@ public class Echo implements Command {
 }
 ```
 
-For more detailed examples please see the example repository
-<a href="https://github.com/Comportment/JDA-Command-Examples">here</a>.
 <br>
-
 <h4>Use JDA-Command in your projects today!</h4>
 
 The current promoted version is 1.1.1
