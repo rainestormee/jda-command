@@ -156,7 +156,7 @@ public class CommandHandler {
      */
     public void findAndExecute(String trigger, Message message, String args) {
         Command command = this.findCommand(trigger);
-        if (command == null || command.getDescription() == null /* <code>null</code> description = command not fully implemented */) return;
+        if (command == null || command.getDescription() == null) return;
         this.execute(command, message, args);
     }
 }
