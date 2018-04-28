@@ -28,7 +28,7 @@ public @interface CommandAttribute {
     /**
      * The key which identifies the attribute.
      *
-     * @return The key of the description.
+     * @return The key of the attribute.
      * @since 1.0.0
      */
     String key();
