@@ -23,7 +23,8 @@ package com.github.rainestormee.jdacommand;
  * @see CommandDescription
  * @since 1.0.0
  */
-public @interface CommandAttribute {
+public @interface CommandAttribute
+{
 
     /**
      * The key which identifies the attribute.

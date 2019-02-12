@@ -22,12 +22,12 @@ package com.github.rainestormee.jdacommand;
  * @author Raine
  * @since 1.0.1
  */
-public class JDACommandInfo {
-
+public class JDACommandInfo
+{
     /**
      * The current version of this library.
      *
      * @since 1.0.1
      */
-    public static final String VERSION = "1.1.2";
+    public static final String VERSION = "1.1.2-arofixed";
 }
