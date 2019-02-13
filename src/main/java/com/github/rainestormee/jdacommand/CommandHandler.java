@@ -16,7 +16,7 @@
 
 package com.github.rainestormee.jdacommand;
 
-import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.api.entities.Message;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,7 +29,8 @@ import java.util.Set;
  * @author Raine
  * @since 1.0.0
  */
-public class CommandHandler {
+public class CommandHandler
+{
 
     /**
      * A set of all of the commands that this {@link CommandHandler} has registered.
@@ -43,10 +44,12 @@ public class CommandHandler {
      * A method to register {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The {@link Command}s to register.
+     *
      * @see #registerCommand(Command)
      * @since 1.0.0
      */
-    public void registerCommands(Set<Command> commands) {
+    public void registerCommands(Set<Command> commands)
+    {
         this.commands.addAll(commands);
     }
 
@@ -54,11 +57,13 @@ public class CommandHandler {
      * A method to register {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The {@link Command}s to register.
+     *
      * @see #registerCommand(Command)
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommands(Command... commands) {
+    public void registerCommands(Command... commands)
+    {
         Collections.addAll(this.commands, commands);
     }
 
@@ -66,10 +71,12 @@ public class CommandHandler {
      * A method to register a {@link Command} with this {@link CommandHandler}.
      *
      * @param command The {@link Command} to register.
+     *
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommand(Command command) {
+    public void registerCommand(Command command)
+    {
         this.registerCommands(command);
     }
 
@@ -77,11 +84,13 @@ public class CommandHandler {
      * A method to unregister {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
+     *
      * @see #unregisterCommand(Command)
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(Set<Command> commands) {
+    public void unregisterCommands(Set<Command> commands)
+    {
         this.commands.removeAll(commands);
     }
 
@@ -89,11 +98,13 @@ public class CommandHandler {
      * A method to unregister {@link Command}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
+     *
      * @see #unregisterCommand(Command)
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(Command... commands) {
+    public void unregisterCommands(Command... commands)
+    {
         this.commands.removeAll(Arrays.asList(commands));
     }
 
@@ -101,11 +112,13 @@ public class CommandHandler {
      * A method to unregister a {@link Command} with this {@link CommandHandler}.
      *
      * @param command The command to unregister.
+     *
      * @see #unregisterCommands(Set)
      * @see #unregisterCommands(Command...)
      * @since 1.0.1
      */
-    public void unregisterCommand(Command command) {
+    public void unregisterCommand(Command command)
+    {
         this.unregisterCommands(command);
     }
 
@@ -115,7 +128,8 @@ public class CommandHandler {
      * @return All of the commands registered with this command handler.
      * @since 1.0.1
      */
-    public Set<Command> getCommands() {
+    public Set<Command> getCommands()
+    {
         return commands;
     }
 
@@ -123,10 +137,12 @@ public class CommandHandler {
      * Method which attempts to find a {@link Command} from the given trigger
      *
      * @param trigger The trigger of the command to find.
+     *
      * @return The {@link Command} that was found, sometimes <code>null</code>
      * @since 1.0.0
      */
-    public Command findCommand(String trigger) {
+    public Command findCommand(String trigger)
+    {
         return commands.stream().filter(cd -> Arrays.asList(cd.getDescription().triggers()).contains(trigger)).findFirst().orElse(null);
     }
 
@@ -136,11 +152,14 @@ public class CommandHandler {
      * @param command The {@link Command} to execute.
      * @param message The {@link Message} which triggered the command.
      * @param args    The arguments of the command.
+     *
      * @since 1.0.0
      */
-    public void execute(Command command, Message message, String args) {
+    public void execute(Command command, Message message, String args)
+    {
         CommandDescription cd = command.getDescription();
-        if (cd == null) return;
+        if (cd == null)
+            return;
         command.execute(message, args.trim());
     }
 
@@ -150,13 +169,16 @@ public class CommandHandler {
      * @param trigger The trigger of the command.
      * @param message The {@link Message} which triggered the command.
      * @param args    The args of the command.
+     *
      * @see #findCommand(String)
      * @see #execute(Command, Message, String)
      * @since 1.0.1
      */
-    public void findAndExecute(String trigger, Message message, String args) {
+    public void findAndExecute(String trigger, Message message, String args)
+    {
         Command command = this.findCommand(trigger);
-        if (command == null || command.getDescription() == null) return;
+        if (command == null || command.getDescription() == null)
+            return;
         this.execute(command, message, args);
     }
 }

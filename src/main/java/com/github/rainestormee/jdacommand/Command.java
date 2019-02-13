@@ -16,7 +16,7 @@
 
 package com.github.rainestormee.jdacommand;
 
-import net.dv8tion.jda.core.entities.Message;
+import net.dv8tion.jda.api.entities.Message;
 
 import javax.annotation.Nullable;
 import java.util.Arrays;
@@ -28,19 +28,23 @@ import java.util.Objects;
  * @author Raine
  * @since 1.0.0
  */
-public interface Command extends Comparable<Command> {
+public interface Command
+        extends Comparable<Command>
+{
 
     /**
      * This is the method called on to execute the command.
      *
      * @param message The message which triggered the command.
      * @param args    The arguments of the commands.
+     *
      * @since 1.0.0
      */
     void execute(Message message, String args);
 
     @Override
-    default int compareTo(@Nullable Command that) {
+    default int compareTo(@Nullable Command that)
+    {
         return this.getDescription().name().compareTo(Objects.requireNonNull(that, "Commands must not be null").getDescription().name());
     }
 
@@ -48,11 +52,14 @@ public interface Command extends Comparable<Command> {
      * Returns the value of the attribute from the key given.
      *
      * @param key The key of the {@link CommandAttribute} to find.
+     *
      * @return The value of the attribute, could be <code>null</code>.
      * @since 1.0.2
      */
-    default String getAttributeValueFromKey(String key) {
-        if (!hasAttribute(key)) return null;
+    default String getAttributeValueFromKey(String key)
+    {
+        if (!hasAttribute(key))
+            return null;
         return Arrays.stream(getDescription().attributes()).filter(ca -> ca.key().equals(key)).findFirst().map(CommandAttribute::value).orElse(null);
     }
 
@@ -62,7 +69,8 @@ public interface Command extends Comparable<Command> {
      * @return The {@link CommandDescription} annotation of the command.
      * @since 1.0.0
      */
-    default CommandDescription getDescription() {
+    default CommandDescription getDescription()
+    {
         return getClass().getAnnotation(CommandDescription.class);
     }
 
@@ -72,12 +80,15 @@ public interface Command extends Comparable<Command> {
      * @return possible-null {@link Category} annotation.
      * @since 1.1.2
      */
-    default Category getCategory() {
+    default Category getCategory()
+    {
         Category category = getClass().getAnnotation(Category.class);
-        if (category != null) return category;
+        if (category != null)
+            return category;
 
         Package p = getClass().getPackage();
-        if (p == null) return null;
+        if (p == null)
+            return null;
 
         return p.getAnnotation(Category.class);
     }
@@ -86,10 +97,12 @@ public interface Command extends Comparable<Command> {
      * Returns if the command has an attribute with the matching key.
      *
      * @param key The key of the attribute
+     *
      * @return True if the command has the attribute, false if it does not.
      * @since 1.0.2
      */
-    default boolean hasAttribute(String key) {
+    default boolean hasAttribute(String key)
+    {
         return Arrays.stream(getDescription().attributes()).anyMatch(ca -> ca.key().equals(key));
     }
 }

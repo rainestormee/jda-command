@@ -28,7 +28,8 @@ import java.lang.annotation.*;
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface CommandDescription {
+public @interface CommandDescription
+{
 
     /**
      * This represents the name of the {@link Command} which is annotated with this {@link CommandDescription}
