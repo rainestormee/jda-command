@@ -29,7 +29,8 @@ public class Echo implements Command {
 <br>
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.1.2
+The current promoted version is 1.1.2  
+JDAs current stable version is 3.8.3_460
 
 <h5>Maven</h5>
 
@@ -59,7 +60,7 @@ The current promoted version is 1.1.2
 <dependency>
     <groupId>net.dv8tion</groupId>
     <artifactId>JDA</artifactId>
-    <version>3.6.0_359</version>
+    <version>3.8.3_460</version>
 </dependency>
 ```
 
@@ -77,6 +78,6 @@ dependencies {
     //JDA-Command dependency
     compile 'com.github.rainestormee:JDA-Command:1.1.2'
     //JDA dependency
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.6.0_359'
+    compile group: 'net.dv8tion', name: 'JDA', version: '3.8.3_460'
 }
 ```
