@@ -12,12 +12,10 @@
     <developers>
         <developer>
             <id>rainestormee</id>
-            <name>Raine Strum</name>
+            <name>Ryan Christopher Arrowsmith</name>
             <timezone>Europe/London</timezone>
-            <url>https://discord.gg/EzJUU9X</url>
-            <email>comportment@protonmail.com</email>
-            <organization>Damage Incorporated</organization>
-            <organizationUrl>http://dmg-inc.com/</organizationUrl>
+            <url>https://rainestormee.github.io/</url>
+            <email>ryanarrowsmith01@gmail.com</email>
             <roles>
                 <role>developer</role>
             </roles>
@@ -63,7 +61,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.0.0-M1</version>
+                <version>3.1.0</version>
                 <configuration />
             </plugin>
         </plugins>
