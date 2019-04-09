@@ -7,6 +7,7 @@ It uses maven for dependency management because I am an XML fangirl,<br>but I al
 <br>
 Thank you for the amazing people at JDA for inspiring the creation of this library,<br>go and check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> 
 <br>
+<br>
 READ THE DOCS : <a href="https://rainestormee.github.io/jda-command/docs">https://rainestormee.github.io/jda-command/docs</a>
 <br>
 <h3>Examples:</h3>
