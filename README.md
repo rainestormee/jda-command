@@ -20,37 +20,39 @@ This is a command which echoes the input of the user if their sentence begins wi
 
 If the input was `bot, echo hello!` the output would be `hello!` (If the prefix was `bot, `) 
 ```java
-@CommandDescription(name = "Echo", triggers = {"echo", "repeat", "copy"}, 
-    description = "This command echoes what you say!", 
-args = 1)
-public class Echo implements Command {
+import com.github.rainestormee.jdacommand.AbstractCommand;
+import com.github.rainestormee.jdacommand.CommandAttribute;
+import com.github.rainestormee.jdacommand.CommandDescription;
+import net.dv8tion.jda.core.entities.Message;
+
+@CommandDescription(
+        name = "echo",
+        triggers = {"echo", "repeat", "copy"},
+        description = "This command echoes what you say!",
+        attributes = {@CommandAttribute(key = "args", value = "1")}
+)
+public class HelpCommand implements AbstractCommand<Message> {
 
     @Override
     public void execute(Message message, String args) {
         message.getChannel().sendMessage(args).queue();
     }
 }
+
 ```
 
 <br>
 <h4>Use JDA-Command in your projects today!</h4>
 
-The current promoted version is 1.1.2
+The current promoted version is 1.1.3
 
 <h5>Maven</h5>
 
 ```xml
-AbstractCommand
 <repository>
     <id>jitpack.io</id>
     <name>jitpack</name>
     <url>https://jitpack.io</url>
-</repository>
-<!--Repository for JDA-->
-<repository>
-    <id>jcenter</id>
-    <name>jcenter-bintray</name>
-    <url>http://jcenter.bintray.com</url>
 </repository>
 ```
 
@@ -59,13 +61,7 @@ AbstractCommand
 <dependency>
    <groupId>com.github.rainestormee</groupId>
    <artifactId>JDA-Command</artifactId>
-   <version>1.1.2</version>
-</dependency>
-<!--Dependency for JDA-->
-<dependency>
-    <groupId>net.dv8tion</groupId>
-    <artifactId>JDA</artifactId>
-    <version>3.6.0_359</version>
+   <version>1.1.3</version>
 </dependency>
 ```
 
@@ -73,16 +69,12 @@ AbstractCommand
 
 ```gradle
 repositories {
-    //This repository is needed for JDA.
-    jcenter()
     //Make sure this repository is last.
     maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     //JDA-Command dependency
-    compile 'com.github.rainestormee:JDA-Command:1.1.2'
-    //JDA dependency
-    compile group: 'net.dv8tion', name: 'JDA', version: '3.6.0_359'
+    compile 'com.github.rainestormee:JDA-Command:1.1.3'
 }
 ```
