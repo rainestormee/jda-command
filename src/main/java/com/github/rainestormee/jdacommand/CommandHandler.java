@@ -16,21 +16,18 @@
 
 package com.github.rainestormee.jdacommand;
 
-import net.dv8tion.jda.api.entities.Message;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
- * The {@link CommandHandler} which deals with the registered {@link Command}s.
+ * The {@link CommandHandler} which deals with the registered {@link AbstractCommand}s.
  *
  * @author Raine
  * @since 1.0.0
  */
-public class CommandHandler
-{
+public class CommandHandler<T> {
 
     /**
      * A set of all of the commands that this {@link CommandHandler} has registered.
@@ -38,125 +35,108 @@ public class CommandHandler
      * @see #getCommands()
      * @since 1.0.0
      */
-    private Set<Command> commands = new HashSet<>();
+    private Set<AbstractCommand> commands = new HashSet<>();
 
     /**
-     * A method to register {@link Command}s with this {@link CommandHandler}.
+     * A method to register {@link AbstractCommand}s with this {@link CommandHandler}.
      *
-     * @param commands The {@link Command}s to register.
-     *
-     * @see #registerCommand(Command)
+     * @param commands The {@link AbstractCommand}s to register.
+     * @see #registerCommand(AbstractCommand)
      * @since 1.0.0
      */
-    public void registerCommands(Set<Command> commands)
-    {
+    public void registerCommands(Set<AbstractCommand> commands) {
         this.commands.addAll(commands);
     }
 
     /**
-     * A method to register {@link Command}s with this {@link CommandHandler}.
+     * A method to register {@link AbstractCommand}s with this {@link CommandHandler}.
      *
-     * @param commands The {@link Command}s to register.
-     *
-     * @see #registerCommand(Command)
+     * @param commands The {@link AbstractCommand}s to register.
+     * @see #registerCommand(AbstractCommand)
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommands(Command... commands)
-    {
+    public void registerCommands(AbstractCommand... commands) {
         Collections.addAll(this.commands, commands);
     }
 
     /**
-     * A method to register a {@link Command} with this {@link CommandHandler}.
+     * A method to register a {@link AbstractCommand} with this {@link CommandHandler}.
      *
-     * @param command The {@link Command} to register.
-     *
+     * @param command The {@link AbstractCommand} to register.
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommand(Command command)
-    {
+    public void registerCommand(AbstractCommand command) {
         this.registerCommands(command);
     }
 
     /**
-     * A method to unregister {@link Command}s with this {@link CommandHandler}.
+     * A method to unregister {@link AbstractCommand}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
-     *
-     * @see #unregisterCommand(Command)
+     * @see #unregisterCommand(AbstractCommand)
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(Set<Command> commands)
-    {
+    public void unregisterCommands(Set<AbstractCommand> commands) {
         this.commands.removeAll(commands);
     }
 
     /**
-     * A method to unregister {@link Command}s with this {@link CommandHandler}.
+     * A method to unregister {@link AbstractCommand}s with this {@link CommandHandler}.
      *
      * @param commands The commands to unregister.
-     *
-     * @see #unregisterCommand(Command)
+     * @see #unregisterCommand(AbstractCommand)
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(Command... commands)
-    {
+    public void unregisterCommands(AbstractCommand... commands) {
         this.commands.removeAll(Arrays.asList(commands));
     }
 
     /**
-     * A method to unregister a {@link Command} with this {@link CommandHandler}.
+     * A method to unregister a {@link AbstractCommand} with this {@link CommandHandler}.
      *
      * @param command The command to unregister.
-     *
      * @see #unregisterCommands(Set)
-     * @see #unregisterCommands(Command...)
+     * @see #unregisterCommands(AbstractCommand...)
      * @since 1.0.1
      */
-    public void unregisterCommand(Command command)
-    {
+    public void unregisterCommand(AbstractCommand command) {
         this.unregisterCommands(command);
     }
 
     /**
-     * A method to get all of the {@link Command}s registered with this {@link CommandHandler}
+     * A method to get all of the {@link AbstractCommand}s registered with this {@link CommandHandler}
      *
      * @return All of the commands registered with this command handler.
      * @since 1.0.1
      */
-    public Set<Command> getCommands()
-    {
+    public Set<AbstractCommand> getCommands() {
         return commands;
     }
 
     /**
-     * Method which attempts to find a {@link Command} from the given trigger
+     * Method which attempts to find a {@link AbstractCommand} from the given trigger
      *
      * @param trigger The trigger of the command to find.
-     *
-     * @return The {@link Command} that was found, sometimes <code>null</code>
+     * @return The {@link AbstractCommand} that was found, sometimes <code>null</code>
      * @since 1.0.0
      */
-    public Command findCommand(String trigger)
-    {
+    public AbstractCommand findCommand(String trigger) {
         return commands.stream().filter(cd -> Arrays.asList(cd.getDescription().triggers()).contains(trigger)).findFirst().orElse(null);
     }
 
     /**
-     * Method which attempts to execute the given {@link Command}.
+     * Method which attempts to execute the given {@link AbstractCommand}.
      *
-     * @param command The {@link Command} to execute.
-     * @param message The {@link Message} which triggered the command.
+     * @param command The {@link AbstractCommand} to execute.
+     * @param message The {@link T} which triggered the command.
      * @param args    The arguments of the command.
-     *
      * @since 1.0.0
      */
-    public void execute(Command command, Message message, String args)
-    {
+    public void execute(AbstractCommand command, T message, String args) {
         CommandDescription cd = command.getDescription();
         if (cd == null)
             return;
@@ -164,19 +144,17 @@ public class CommandHandler
     }
 
     /**
-     * A method which calls {@link #findCommand(String)}, and then {@link #execute(Command, Message, String)} if the found {@link Command} is not <code>null</code>
+     * A method which calls {@link #findCommand(String)}, and then {@link #execute(AbstractCommand, T, String)} if the found {@link AbstractCommand} is not <code>null</code>
      *
      * @param trigger The trigger of the command.
-     * @param message The {@link Message} which triggered the command.
+     * @param message The {@link T} which triggered the command.
      * @param args    The args of the command.
-     *
      * @see #findCommand(String)
-     * @see #execute(Command, Message, String)
+     * @see #execute(AbstractCommand, T, String)
      * @since 1.0.1
      */
-    public void findAndExecute(String trigger, Message message, String args)
-    {
-        Command command = this.findCommand(trigger);
+    public void findAndExecute(String trigger, T message, String args) {
+        AbstractCommand command = this.findCommand(trigger);
         if (command == null || command.getDescription() == null)
             return;
         this.execute(command, message, args);

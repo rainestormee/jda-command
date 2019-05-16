@@ -40,7 +40,7 @@ The current promoted version is 1.1.2
 <h5>Maven</h5>
 
 ```xml
-<!--Repository for JDA-Command-->
+AbstractCommand
 <repository>
     <id>jitpack.io</id>
     <name>jitpack</name>

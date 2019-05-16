@@ -19,10 +19,10 @@ package com.github.rainestormee.jdacommand;
 import java.lang.annotation.*;
 
 /**
- * This is for annotating classes which extend {@link Command}
+ * This is for annotating classes which extend {@link AbstractCommand}
  *
  * @author Raine
- * @see Command
+ * @see AbstractCommand
  * @since 1.0.0
  */
 @Documented
@@ -32,7 +32,7 @@ public @interface CommandDescription
 {
 
     /**
-     * This represents the name of the {@link Command} which is annotated with this {@link CommandDescription}
+     * This represents the name of the {@link AbstractCommand} which is annotated with this {@link CommandDescription}
      *
      * @return The name of the command, should never be <code>null</code>.
      * @since 1.0.0
@@ -40,7 +40,7 @@ public @interface CommandDescription
     String name();
 
     /**
-     * This represents the description of the {@link Command} which is annotated with this {@link CommandDescription} has.
+     * This represents the description of the {@link AbstractCommand} which is annotated with this {@link CommandDescription} has.
      *
      * @return The description of the command, default as an empty string.
      * @since 1.0.6
@@ -48,7 +48,7 @@ public @interface CommandDescription
     String description() default "";
 
     /**
-     * This represents an array of Strings which could trigger the {@link Command} which is annotated with this {@link CommandDescription} has.
+     * This represents an array of Strings which could trigger the {@link AbstractCommand} which is annotated with this {@link CommandDescription} has.
      *
      * @return An Array of Strings which could trigger the command.
      * @since 1.0.0
@@ -56,7 +56,7 @@ public @interface CommandDescription
     String[] triggers();
 
     /**
-     * This represents an Array of {@link CommandAttribute} that the {@link Command} which is annotated with this {@link CommandDescription} has.
+     * This represents an Array of {@link CommandAttribute} that the {@link AbstractCommand} which is annotated with this {@link CommandDescription} has.
      *
      * @return An array of {@link CommandAttribute}s, will return an empty array if no attributes are used.
      * @since 1.0.0

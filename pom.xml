@@ -71,12 +71,4 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>net.dv8tion</groupId>
-            <artifactId>JDA</artifactId>
-            <version>LATEST</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 </project>
