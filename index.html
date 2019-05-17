@@ -1,0 +1,67 @@
+<h1>
+JDA-Command
+</h1>
+<h5>
+Small, powerful and lightweight command library for JDA.
+</h5>
+
+This command library was built to help people make amazing bots within JDA! <br> It uses maven for dependency management because I am an XML fangirl,<br>but I also find gradle cool and use it for some projects. <br> Thank you for the amazing people at JDA for inspiring the creation of this library,<br>go and check them out at <link>https://github.com/DV8FromTheWorld/JDA/</link> <br> <br> READ THE DOCS : <a href="https://rainestormee.github.io/jda-command/docs">https://rainestormee.github.io/jda-command/docs</a> <br>
+<h3>
+Examples:
+</h3>
+<p>https://github.com/Nekos-life/neko-bot-jda - Neko-Bot JDA (<span class="citation">@IAmTails</span>) <br /></p>
+<p>Command Example!</p>
+<p>This is a command which echoes the input of the user if their sentence begins with the bot's prefix and <code>echo</code>, <code>repeat</code> or <code>copy</code>.</p>
+<p>If the input was <code>bot, echo hello!</code> the output would be <code>hello!</code> (If the prefix was <code>bot,</code>)</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">import com.github.rainestormee.jdacommand.AbstractCommand;</span>
+<span class="kw">import com.github.rainestormee.jdacommand.CommandAttribute;</span>
+<span class="kw">import com.github.rainestormee.jdacommand.CommandDescription;</span>
+<span class="kw">import net.dv8tion.jda.core.entities.Message;</span>
+
+<span class="fu">@CommandDescription</span>(
+        name = <span class="st">&quot;echo&quot;</span>,
+        triggers = {<span class="st">&quot;echo&quot;</span>, <span class="st">&quot;repeat&quot;</span>, <span class="st">&quot;copy&quot;</span>},
+        description = <span class="st">&quot;This command echoes what you say!&quot;</span>,
+        attributes = {<span class="fu">@CommandAttribute</span>(key = <span class="st">&quot;args&quot;</span>, value = <span class="st">&quot;1&quot;</span>)}
+)
+<span class="kw">public</span> <span class="kw">class</span> HelpCommand <span class="kw">implements</span> AbstractCommand&lt;Message&gt; {
+
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> <span class="dt">void</span> <span class="fu">execute</span>(Message message, String args) {
+        message.<span class="fu">getChannel</span>().<span class="fu">sendMessage</span>(args).<span class="fu">queue</span>();
+    }
+}</code></pre>
+<br>
+<h4>
+Use JDA-Command in your projects today!
+</h4>
+
+<p>The current promoted version is 1.1.3</p>
+<h5>
+Maven
+</h5>
+
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;repository&gt;</span>
+    <span class="kw">&lt;id&gt;</span>jitpack.io<span class="kw">&lt;/id&gt;</span>
+    <span class="kw">&lt;name&gt;</span>jitpack<span class="kw">&lt;/name&gt;</span>
+    <span class="kw">&lt;url&gt;</span>https://jitpack.io<span class="kw">&lt;/url&gt;</span>
+<span class="kw">&lt;/repository&gt;</span></code></pre>
+<pre class="sourceCode xml"><code class="sourceCode xml"><span class="co">&lt;!--Dependency for JDA-Command--&gt;</span>
+<span class="kw">&lt;dependency&gt;</span>
+   <span class="kw">&lt;groupId&gt;</span>com.github.rainestormee<span class="kw">&lt;/groupId&gt;</span>
+   <span class="kw">&lt;artifactId&gt;</span>JDA-Command<span class="kw">&lt;/artifactId&gt;</span>
+   <span class="kw">&lt;version&gt;</span>1.1.3<span class="kw">&lt;/version&gt;</span>
+<span class="kw">&lt;/dependency&gt;</span></code></pre>
+<h5>
+Gradle
+</h5>
+
+<pre class="gradle"><code>repositories {
+    //Make sure this repository is last.
+    maven { url &#39;https://jitpack.io&#39; }
+}
+
+dependencies {
+    //JDA-Command dependency
+    compile &#39;com.github.rainestormee:JDA-Command:1.1.3&#39;
+}</code></pre>
