@@ -31,7 +31,7 @@ import net.dv8tion.jda.core.entities.Message;
         description = "This command echoes what you say!",
         attributes = {@CommandAttribute(key = "args", value = "1")}
 )
-public class HelpCommand implements AbstractCommand<Message> {
+public class PingCommand implements AbstractCommand<Message> {
 
     @Override
     public void execute(Message message, String args) {
