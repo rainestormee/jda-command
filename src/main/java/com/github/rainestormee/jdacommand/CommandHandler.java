@@ -124,7 +124,7 @@ public class CommandHandler<T> {
      * @return The {@link AbstractCommand} that was found, sometimes <code>null</code>
      * @since 1.0.0
      */
-    public AbstractCommand findCommand(String trigger) {
+    public AbstractCommand<T> findCommand(String trigger) {
         return commands.stream().filter(cd -> Arrays.asList(cd.getDescription().triggers()).contains(trigger)).findFirst().orElse(null);
     }
 
