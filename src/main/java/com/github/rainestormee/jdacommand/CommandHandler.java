@@ -35,7 +35,7 @@ public class CommandHandler<T> {
      * @see #getCommands()
      * @since 1.0.0
      */
-    private Set<AbstractCommand> commands = new HashSet<>();
+    private final Set<AbstractCommand<T>> commands = new HashSet<>();
 
     /**
      * A method to register {@link AbstractCommand}s with this {@link CommandHandler}.
@@ -44,7 +44,7 @@ public class CommandHandler<T> {
      * @see #registerCommand(AbstractCommand)
      * @since 1.0.0
      */
-    public void registerCommands(Set<AbstractCommand> commands) {
+    public void registerCommands(Set<AbstractCommand<T>> commands) {
         this.commands.addAll(commands);
     }
 
@@ -56,7 +56,8 @@ public class CommandHandler<T> {
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommands(AbstractCommand... commands) {
+    @SafeVarargs
+    public final void registerCommands(AbstractCommand<T>... commands) {
         Collections.addAll(this.commands, commands);
     }
 
@@ -67,7 +68,7 @@ public class CommandHandler<T> {
      * @see #registerCommands(Set)
      * @since 1.0.1
      */
-    public void registerCommand(AbstractCommand command) {
+    public void registerCommand(AbstractCommand<T> command) {
         this.registerCommands(command);
     }
 
@@ -79,7 +80,7 @@ public class CommandHandler<T> {
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(Set<AbstractCommand> commands) {
+    public void unregisterCommands(Set<AbstractCommand<T>> commands) {
         this.commands.removeAll(commands);
     }
 
@@ -91,7 +92,8 @@ public class CommandHandler<T> {
      * @see #unregisterCommands(Set)
      * @since 1.0.1
      */
-    public void unregisterCommands(AbstractCommand... commands) {
+    @SafeVarargs
+    public final void unregisterCommands(AbstractCommand<T>... commands) {
         this.commands.removeAll(Arrays.asList(commands));
     }
 
@@ -103,7 +105,7 @@ public class CommandHandler<T> {
      * @see #unregisterCommands(AbstractCommand...)
      * @since 1.0.1
      */
-    public void unregisterCommand(AbstractCommand command) {
+    public void unregisterCommand(AbstractCommand<T> command) {
         this.unregisterCommands(command);
     }
 
@@ -113,7 +115,7 @@ public class CommandHandler<T> {
      * @return All of the commands registered with this command handler.
      * @since 1.0.1
      */
-    public Set<AbstractCommand> getCommands() {
+    public Set<AbstractCommand<T>> getCommands() {
         return commands;
     }
 
@@ -136,27 +138,27 @@ public class CommandHandler<T> {
      * @param args    The arguments of the command.
      * @since 1.0.0
      */
-    public void execute(AbstractCommand command, T message, String args) {
+    public void execute(AbstractCommand<T> command, T message, String args, String trigger) {
         CommandDescription cd = command.getDescription();
         if (cd == null)
             return;
-        command.execute(message, args.trim());
+        command.execute(message, args.trim(), trigger);
     }
 
     /**
-     * A method which calls {@link #findCommand(String)}, and then {@link #execute(AbstractCommand, T, String)} if the found {@link AbstractCommand} is not <code>null</code>
+     * A method which calls {@link #findCommand(String)}, and then {@link #execute(AbstractCommand, T, String, String)} if the found {@link AbstractCommand} is not <code>null</code>
      *
      * @param trigger The trigger of the command.
      * @param message The {@link T} which triggered the command.
      * @param args    The args of the command.
      * @see #findCommand(String)
-     * @see #execute(AbstractCommand, T, String)
+     * @see #execute(AbstractCommand, T, String, String)
      * @since 1.0.1
      */
     public void findAndExecute(String trigger, T message, String args) {
-        AbstractCommand command = this.findCommand(trigger);
+        AbstractCommand<T> command = this.findCommand(trigger);
         if (command == null || command.getDescription() == null)
             return;
-        this.execute(command, message, args);
+        this.execute(command, message, args, trigger);
     }
 }

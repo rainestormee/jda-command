@@ -31,10 +31,11 @@ public interface AbstractCommand<T> extends Comparable<AbstractCommand<T>> {
      *
      * @param message T is the object that is passed to this command
      * @param args The arguments from the command
+     * @param trigger The trigger used to execute this command.
      * @author Raine
      * @since 1.1.3
      */
-    void execute(T message, String args);
+    void execute(T message, String args, String trigger);
 
     /**
      * Get the {@link CommandDescription} that annotates this {@link AbstractCommand}
