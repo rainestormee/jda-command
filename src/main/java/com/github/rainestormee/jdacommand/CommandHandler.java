@@ -138,21 +138,22 @@ public class CommandHandler<T> {
      * @param args    The arguments of the command.
      * @since 1.0.0
      */
-    public void execute(AbstractCommand<T> command, T message, String args, String trigger) {
+    public void execute(AbstractCommand<T> command, T message, Object... args) {
         CommandDescription cd = command.getDescription();
         if (cd == null)
             return;
-        command.execute(message, args.trim(), trigger);
+
+        command.execute(message, args);
     }
 
     /**
-     * A method which calls {@link #findCommand(String)}, and then {@link #execute(AbstractCommand, T, String, String)} if the found {@link AbstractCommand} is not <code>null</code>
+     * A method which calls {@link #findCommand(String)}, and then {@link #execute(AbstractCommand, T, Object...)} if the found {@link AbstractCommand} is not <code>null</code>
      *
      * @param trigger The trigger of the command.
      * @param message The {@link T} which triggered the command.
      * @param args    The args of the command.
      * @see #findCommand(String)
-     * @see #execute(AbstractCommand, T, String, String)
+     * @see #execute(AbstractCommand, T, Object...)
      * @since 1.0.1
      */
     public void findAndExecute(String trigger, T message, String args) {

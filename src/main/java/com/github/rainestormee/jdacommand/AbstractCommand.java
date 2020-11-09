@@ -26,16 +26,16 @@ import java.util.Arrays;
  */
 public interface AbstractCommand<T> extends Comparable<AbstractCommand<T>> {
 
+
     /**
      * Execute this command.
      *
-     * @param message T is the object that is passed to this command
+     * @param object T is the object that is passed to this command
      * @param args The arguments from the command
-     * @param trigger The trigger used to execute this command.
      * @author Raine
      * @since 1.1.3
      */
-    void execute(T message, String args, String trigger);
+    void execute(T object, Object... args);
 
     /**
      * Get the {@link CommandDescription} that annotates this {@link AbstractCommand}
